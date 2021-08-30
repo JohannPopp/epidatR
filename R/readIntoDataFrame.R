@@ -6,18 +6,19 @@
 # Last update: 2019-08-02
 ###########################################
 
+
 epx.read <- function(x){
   if(length(x$records > 0)){
   records <- x$records
   fieldNames <- x$fieldNames
   fieldLabels <- x$fieldLabels
   fieldTypes <- x$fieldTypes
-  
+
   # Add category "NA" for missing values in the records
-  records <- paste("NA;", records, sep="")  
+  records <- paste("NA;", records, sep="")
   # Construct a pattern to seperate individual variables in the records
   pattern <- paste(";", paste(fieldNames, "=", sep = "", collapse = "|;"), sep = "")
-  
+
   # Enter values from the records into a data.frame.
     dat <- as.data.frame(
       lapply(
@@ -33,22 +34,22 @@ epx.read <- function(x){
   # Delete double quotation marks at the beginning and end of text fields
   characterPattern <- "ftString|ftMemo|ftUpperString"
   if(sum(grepl(characterPattern, fieldTypes)) == 1) {
-    dat[,grepl(characterPattern, fieldTypes)] <- 
-    gsub("^\"|\"$", "", dat[,grepl(characterPattern, fieldTypes)])  
+    dat[,grepl(characterPattern, fieldTypes)] <-
+    gsub("^\"|\"$", "", dat[,grepl(characterPattern, fieldTypes)])
   } else {
     if(sum(grepl(characterPattern, fieldTypes)) > 1) {
       dat[,grepl(characterPattern, fieldTypes)] <-
         as.data.frame(
-          apply(dat[,grep("ftString|ftMemo|ftUpperString", fieldTypes)], 
-                2, 
-                function(x){ 
+          apply(dat[,grep("ftString|ftMemo|ftUpperString", fieldTypes)],
+                2,
+                function(x){
                   x <- gsub("^\"|\"$", "", x)
                 }
-          ), 
+          ),
           stringsAsFactors = FALSE)
     }
   }
- 
+
   # Include variable labels
   attributes(dat)$variable.labels <- fieldLabels
 

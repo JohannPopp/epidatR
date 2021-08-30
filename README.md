@@ -1,17 +1,30 @@
-# EpiData2R
+# epidatR
 
-These R-functions are built to read EpiDatas epx-files directly into R. It already exists an R-package "epxToR" for this task, but it does not work on my system and it seems not to be updated any more. Because of this, I started to program my own functions.
+This package reads [EpiData](https://www.epidata.dk/) epx-files directly into R. So far it contains one major function `read.EpiData()`. The other functions in this repository are helpers.
 
-The main function is `read.EpiData()` in the file "read.EpiData.R".
+Compared to the allready existing package [epxToR](https://cran.r-project.org/web/packages/epxToR/index.html), `read.EpiData()` not only transfers epx-files into an R-`data.frame`. Additionally, values defined as missing in EpiData will be set to `NA`, defined value and variable labels will be applied and variables will be converted to appropriate R-classes according to their field type in EpiData.
 
-The functions transforms epx-files into an R-`data.frame`. Defined missings will be set to `NA`, value labels - if available - will be applied and variables will be contvertet to R-classes according to their field type. If this does not work properly for some reasons, the original codes can be loaded into the `data.frame` as `character`-variables, by setting the argument `raw.data = TRUE`.
+If this conversion is not wanted or causes some trouble, the original raw codes can be transferred into the `data.frame` as `character`-variables, by setting the argument `convert=FALSE`.
 
-If the epx-file consists of one data set only, the output will be a data.frame. If the epx-file contains a relational data base with multiple data sets, it will be a list of multiple data.frames.
+If the epx-file consists of one data set only, the output will be a `data.frame`. If the epx-file contains a relational data base with multiple data sets, it will be a `list` of multiple `data.frame`s.
 
 Variable labels, study information and information about the relation of data sets are given as attributes.
 
-In a former stage of development, single parts of the function where split into the different functions `epx.extract()` (in "extractInformation.R"), `epx.read()` (in "readIntoDataFrame.R"), `epx.missing()` (in "missingValues.R") and `epx.class()` (in "convertToClasses.R") and finaly `read.EpiData()` in "readEpiData.R", that combines the single functions. If the project will eventually published as an R-package, it may be a good idea to go back to this modular structure.
+Helper functions are: 
 
-The function works fine with the example files "Beispielprojekt.epx", "marathon.epx", "sample.v3.epx" and "Clinical_Example.epx". Further testing is needed and I would appreciate feed back.
+* `epx.extract()` extracts the xml-like data from the epx-file.
+* `epx.read()` transfers the extracted data into a `data.frame`.
+* `epx.missing()` sets defined missings to `NA`.
+* `epx.class()` applies value labels and variable classes.
+* `epidatR.example()` returns the path of the example files in the attached package.
+
+
+The function works fine with the example files "Beispielprojekt.epx", "marathon.epx", "sample.v3.epx" and "Clinical_Example.epx", that are stored under /inst/extdata. Further testing is needed and I would appreciate feed back.
 
 The function can not jet read encrypted epx-files. I would need much more expertise in cryptography to implement this feature. Perhaps there are some experts to help me out. For experimentation I have added the files "sample.v3_password.epx" with simple (symetric) encryption (Password = "password") and "sample.v3_ExtendedAccess.epx" with asymetric encryption produeced by the Extended Access module (Login = "admin", Password = "password"). 
+
+The package is not jet available from CRAN. You can install it from here, using the devtools-package.
+
+```{r}
+devtools::install_github("https://github.com/JohannPopp/epidatR")
+```

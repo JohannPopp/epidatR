@@ -7,19 +7,7 @@
 # Last update: 2021-08-29
 ###########################################
 
-#' Extract xml-data from an epx-file
-#'
-#' A helper function for the main function \code{\link{read.EpiData}}, that extracts xml-data from the epx-file.
-#'
-#' @param x An EpiData epx-file.
-#'
-#' @return A list of extacted data.
-#' @seealso \code{\link{read.EpiData}}
-#'
-#' @examples
-#' epx.extract("marathon.epx")
-#'
-#'
+
 epx.extract <- function(x){
   # Read epx-data and remove name spaces.
   epx <- xml2::xml_ns_strip(xml2::read_xml(x))
