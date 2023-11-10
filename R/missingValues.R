@@ -10,7 +10,7 @@
 epx.missing <- function(dat, info){
   dat <- dat
   info <- info
-  
+
   # Extract value codes
   valueCodes <- lapply(info$valLabels, function(x) xml2::xml_attr(x, "value"))
   # Identify value label sets that have codes for missing values and where are those codes
@@ -24,18 +24,31 @@ epx.missing <- function(dat, info){
   missingsPerVar <- lapply(missingCodes[as.numeric(paste(indexValLabSet))],
                            paste, collapse = "|")
   missingsPerVar[missingsPerVar == ""] <- NA
-  
-  # Convert defined missing values into NA
-  dat[
+
+  # # Convert defined missing values into NA
+  # dat[
+  #   mapply(function(x, y){
+  #     grepl(y, x)
+  #   },
+  #   x = dat,
+  #   y = missingsPerVar) == 1
+  #   ] <- NA
+
+  # Identify defined missing values in the data.frame
+  defMissings <-
     mapply(function(x, y){
       grepl(y, x)
     },
-    x = dat, 
-    y = missingsPerVar) == 1
-    ] <- NA
+    x = dat,
+    y = missingsPerVar)
+
+  # Convert defined missing values to NA
+  ifelse(nrow(dat) >1,
+         dat[defMissings] <- NA,
+         dat[,which(defMissings)] <- NA)
 
   # Convert undefined missing values in text fields (expressed as "NA") into NA
   dat[dat == "NA"] <- NA
- 
+
   dat
 }

@@ -29,24 +29,18 @@ epx.read <- function(x){
           unlist(lapply(strsplit(records2, pattern), function(x) x[1]))
         }),
       stringsAsFactors = FALSE, col.names = fieldNames)
-  # })
 
   # Delete double quotation marks at the beginning and end of text fields
-  characterPattern <- "ftString|ftMemo|ftUpperString"
-  if(sum(grepl(characterPattern, fieldTypes)) == 1) {
-    dat[,grepl(characterPattern, fieldTypes)] <-
-    gsub("^\"|\"$", "", dat[,grepl(characterPattern, fieldTypes)])
+  characterField <- grepl("ftString|ftMemo|ftUpperString", fieldTypes)
+  if(sum(characterField) == 1) {
+    dat[,characterField] <-
+    gsub("^\"|\"$", "", dat[,characterField])
   } else {
-    if(sum(grepl(characterPattern, fieldTypes)) > 1) {
-      dat[,grepl(characterPattern, fieldTypes)] <-
-        as.data.frame(
-          apply(dat[,grep("ftString|ftMemo|ftUpperString", fieldTypes)],
-                2,
-                function(x){
-                  x <- gsub("^\"|\"$", "", x)
-                }
-          ),
-          stringsAsFactors = FALSE)
+    # if(sum(grepl(characterPattern, fieldTypes)) > 1) {
+    if(sum(characterField) >1){
+      # dat[,grepl(characterPattern, fieldTypes)] <-
+      dat[,characterField] <-
+        apply(dat[,characterField], 2, function(x) gsub("^\"|\"$", "", x))
     }
   }
 

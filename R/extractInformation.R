@@ -8,12 +8,34 @@
 ###########################################
 
 
+#' Helper: Extract Data From Epx-File
+#'
+#' A helper function of \code{\link{read.EpiData}}, to extract the xml-like data from an epx-file.
+#'
+#' @param x An EpiData epx-file
+#'
+#' @return
+#'     A list, containing the following elements:
+#'     \describe{
+#'       \item{$epx:}{The entire xml_document from the epx-file.}
+#'       \item{$infoEpiData:}{Information about EpiDatas set up.}
+#'       \item{$infoStudy}{Information about the study.}
+#'       \item{$infoSeparators}{Used separators.}
+#'       \item{$infoDataSets}{Summary information about the data sets.}
+#'       \item{$infoParentDataSet}{Information about parent data sets in relational data bases.}
+#'       \item{$perDataSet}{Information from each data set.}
+#'       \item{$infoKeyVars}{Key variables in relational data bases.}
+#'    }
+
+#' @export
+#'
+
 epx.extract <- function(x){
   # Read epx-data and remove name spaces.
   epx <- xml2::xml_ns_strip(xml2::read_xml(x))
 
   # Extract general Informations
-  infoEpiData <- xml2::xml_find_all(epx, "//EpiData")
+  infoEpiData <- xml2::xml_attrs(xml2::xml_find_all(epx, "//EpiData"))
   infoStudy <- xml2::xml_find_all(epx, "//StudyInfo")
   infoSeparators <- unlist(xml2::xml_attrs(xml2::xml_find_all(epx, "//Settings")))
 

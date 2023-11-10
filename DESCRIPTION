@@ -1,13 +1,13 @@
 Package: epidatR
 Type: Package
-Title: Reading EpiData epx-Files and converting them to a data.frame
+Title: Reading EpiData Epx-Files and Converting Them to a Data.frame
 Version: 0.1.0
 Authors@R: 
     person("Johann", "Popp", email = "johann.popp@posteo.de", role = c("aut", "cre"))
-Maintainer: The package maintainer <johann.popp@posteo.de>
+Maintainer: Johann Popp <johann.popp@posteo.de>
 Description: The main function read.EpiData() reads epx-files, created by 
     EpiData software (www.epidata.dk), into R and converts the data into 
-    appropiate object classes.
+    appropriate object classes.
 URL: https://github.com/JohannPopp/epidatR/
 Imports: 
     xml2
@@ -15,3 +15,6 @@ License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.1
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3

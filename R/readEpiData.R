@@ -56,9 +56,10 @@
 #'
 #' # Extract study information
 #' attributes(path)$study.info
-#'
-#'
-read.EpiData <- function(x, convert = TRUE){
+
+
+
+read.EpiData <- function(x, convert = TRUE, setNA = TRUE){
   info <- epx.extract(x)
   dat <- lapply(info[[7]], epx.read)
 
@@ -66,15 +67,19 @@ read.EpiData <- function(x, convert = TRUE){
   perDataSet <- mapply(function(dat, info) list(list(dat = dat, info = info)), dat, info[[7]])
 
   suppressWarnings(
-    if(convert == TRUE){
+    if(setNA == TRUE){
       dat2 <- lapply(perDataSet, function(x) epx.missing(x$dat, x$info))
       perDataSet <- mapply(function(dat, info) list(list(dat = dat, info = info)), dat2, info[[7]])
+    })
+
+  suppressWarnings(
+    if(convert == TRUE){
       dat2 <- lapply(perDataSet,
-                    function(x){
-                      if(class(x[[1]]) == "data.frame"){
-                        epx.class(x[[1]], x[[2]])
-                      } else {"This data frame has no entries"}
-                    })
+                     function(x){
+                       if(class(x[[1]]) == "data.frame"){
+                         epx.class(x[[1]], x[[2]])
+                       } else {"This data frame has no entries"}
+                     })
       attributes(dat2) <- attributes(dat)
       dat2
     } else {
