@@ -28,8 +28,8 @@
 #'
 #' @param x An epx-file created by EpiData.
 #' @param convert logical. Shall variables be converted to appropriate object
-#' classes? Shall the value labels of coded variables be shown and defined missings
-#' be set to \code{NA}?
+#' classes? Shall the value labels of coded variables be shown?
+#' @param setNA logical. Shall defined missings be set to \code{NA}?
 #'
 #' @return
 #' A simple data base will be returned as a \code{data.frame}. A relational
@@ -42,7 +42,7 @@
 #' @details
 #' By default, object classes of the variables will be set according to the field type defined in EpiData. Coded variables will be returned as \code{factor}s with the value labels defined in EpiData. Values that are defined as missing values in EpiData will be set to \code{NA}.
 #'
-#'  If this is not wanted or causes some trouble, you can set \code{convert=FALSE} to get \code{data.frame}s with the raw data in \code{character} form.
+#'  If this is not wanted or causes some trouble, you can set \code{convert=FALSE} to get \code{data.frame}s with the raw data in \code{character} form. Set \code{setNA=FALSE} to use the original codes/labels for defined missing values.
 #'
 #'
 #' @export
@@ -76,7 +76,7 @@ read.EpiData <- function(x, convert = TRUE, setNA = TRUE){
     if(convert == TRUE){
       dat2 <- lapply(perDataSet,
                      function(x){
-                       if(class(x[[1]]) == "data.frame"){
+                       if(inherits(x[[1]], "data.frame")){
                          epx.class(x[[1]], x[[2]])
                        } else {"This data frame has no entries"}
                      })

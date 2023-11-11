@@ -4,10 +4,10 @@
 \alias{epidatR.example}
 \title{Path to epidatR Example files}
 \usage{
-epidatR.example(x)
+epidatR.example(path = NULL)
 }
 \arguments{
-\item{x}{Example epx-file.}
+\item{path}{Name of the example file. If NULL, all example files will be listed.}
 }
 \value{
 Complete file path.
@@ -16,6 +16,6 @@ Complete file path.
 This is just a helper function to get the path to the example files of the attached epidatR package.
 }
 \examples{
-epidatR.example("marathon.epx")
+epidatR.example()
 
 }
