@@ -51,11 +51,11 @@
 #' # Read the example data set "marathon.epx"
 #' # (The helper function epidatR.example is only needed to identify the path
 #' # of the example file in the loaded package).
-#' path <- epidatR.example("marathon.epx")
-#' read.EpiData(path)
+#' dat <- read.EpiData(epidatR.example("marathon.epx"))
+#' dat
 #'
 #' # Extract study information
-#' attributes(path)$study.info
+#' attributes(dat)$study.info
 
 
 
