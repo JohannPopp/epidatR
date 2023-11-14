@@ -4,7 +4,7 @@
 
 # Johann Popp
 # 2019-06-08
-# Last update: 2021-08-29
+# Last update: 2023-11-14
 ###########################################
 
 
@@ -40,20 +40,37 @@ epx.extract <- function(x){
   infoSeparators <- unlist(xml2::xml_attrs(xml2::xml_find_all(epx, "//Settings")))
 
   infoDataSets <- xml2::xml_find_all(epx, "//DataFile")
-  infoParentDataSet <- lapply(
-    xml2::xml_find_all(epx, "//DataFileRelation"),
-    function(x){
-      xml2::xml_attr(xml2::xml_parent(xml2::xml_parent(x)), "dataFileRef")
-    }
+
+  # Data set relations
+  level <- xml2::xml_find_all(epx, "//DataFileRelations") |>
+    xml2::xml_children()
+  infoRelations <- data.frame(data.set = xml2::xml_attr(level, "dataFileRef"))
+  level <- lapply(level, xml2::xml_find_all, ".//DataFileRelation")
+  child <- lapply(level, xml2::xml_attr, "dataFileRef")
+  child <- unlist(lapply(child, paste, collapse = "; "))
+  infoRelations$offspring.data.sets = child
+
+  # Key variables
+  infoKeyVars <- data.frame(
+    data.set =
+      xml2::xml_find_all(epx, "//DataFile") |>
+      xml2::xml_attr("id"),
+    labels =
+      xml2::xml_find_all(epx, "//DataFile") |>
+      xml2::xml_child("Caption") |>
+      xml2::as_list() |> unlist(),
+    key =
+      xml2::xml_find_all(epx, "//DataFile") |>
+      lapply(xml2::xml_child, "KeyFields") |>
+      lapply(xml2::xml_children) |>
+      lapply(xml2::xml_attr, "fieldRef") |>
+      lapply(paste, collapse = "; ") |>
+      as.character()
   )
-  infoKeyVars <- lapply(
-    lapply(
-      xml2::xml_find_all(epx, "//KeyFields"),
-      function(x) xml2::xml_attr(xml2::xml_children(x), "fieldRef")),
-    paste, collapse = ";;")
 
-
-
+  # Merge with infoRelations
+  infoRelations <-
+    merge(infoRelations, infoKeyVars, by = "data.set")[,c(1,3,2,4)]
 
   # Extract information for each data set
   epxExtractDataSet <- function(df){
@@ -105,8 +122,8 @@ epx.extract <- function(x){
 
   # Gather information in a list
   list(epx = epx, infoEpiData = infoEpiData, infoStudy = infoStudy, infoSeparators = infoSeparators,
-       infoDataSets = infoDataSets, infoParentDataSet = infoParentDataSet,
-       perDataSet = perDataSet, infoKeyVars = infoKeyVars)
+       infoDataSets = infoDataSets, infoRelations = infoRelations,
+       perDataSet = perDataSet)
 }
 
 

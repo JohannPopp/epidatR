@@ -10,9 +10,20 @@
 ###########################################
 
 
-epx.class <- function(x, info){
-  dat <- x
-  info <- info
+#' Helper: Show value labels and convert variables to appropriate classes
+#'
+#' A helper function of \code{\link{read.EpiData}}, to replace values by value labels and convert variables to appropriate classes.
+#'
+#' @param dat A data.frame or a list of data.frames created by \code{\link{epx.extract}}.
+#' @param info Additional information about the EpiData-file created by \code{\link{epx.extract}}.
+#'
+#' @return A data.frame with value labels and appropriate object classes of the variables.
+#' @export
+#'
+#'
+epx.class <- function(dat, info){
+  # dat <- x
+  # info <- info
 
   # Extract field types
   fieldTypes <- info$fieldTypes
@@ -34,7 +45,9 @@ epx.class <- function(x, info){
       info$fieldValLabSets,
       function(x){
         which(
-          grepl(x, xml2::xml_attr(catValLabelSets, "id")) == TRUE)
+          grepl(
+            paste0("^", x, "$"),
+            xml2::xml_attr(catValLabelSets, "id")))
       }
     )
   )

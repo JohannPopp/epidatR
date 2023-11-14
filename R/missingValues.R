@@ -3,9 +3,20 @@
 
 # Johann Popp
 # 2019-06-09
-# Last modification: 2019-07-25
+# Last modification: 2023-11-14
 ###########################################
 
+
+#' Helper: Convert defined missings to NA
+#'
+#' A helper function of \code{\link{read.EpiData}}, to convert defined missing values to NA.
+#'
+#' @param dat A data.frame or a list of data.frames created by \code{\link{epx.extract}}.
+#' @param info Additional information about the EpiData-file created by \code{\link{epx.extract}}.
+#'
+#' @return A data.frame with defined missing values set to NA.
+#' @export
+#'
 
 epx.missing <- function(dat, info){
   dat <- dat
