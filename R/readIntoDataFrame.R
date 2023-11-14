@@ -3,8 +3,19 @@
 
 # Johann Popp
 # 2019-06-23
-# Last update: 2019-08-02
+# Last update: 2023-11-14
 ###########################################
+
+
+#' Helper: Reading xml-data from a EpiData-epx file into a data.frame.
+#'
+#' A helper function of \code{\link{read.EpiData}} to read xml-data into a data.frame
+#'
+#' @param x Data set informations extracted by \code{\link{epx.extract}} (info [[7]]).
+#'
+#' @return A data.frame
+#' @export
+#'
 
 
 epx.read <- function(x){

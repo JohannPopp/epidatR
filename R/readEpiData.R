@@ -18,7 +18,7 @@
 
 # Johann Popp
 # 2019-06-16
-# Last update: 2021-08-30
+# Last update: 2023-11-14
 ###########################################
 
 #' Read EpiData epx-Files
@@ -66,12 +66,14 @@ read.EpiData <- function(x, convert = TRUE, setNA = TRUE){
   # Combine dat and info in a data-set-wise list
   perDataSet <- mapply(function(dat, info) list(list(dat = dat, info = info)), dat, info[[7]])
 
+  # Set definded missing variables to NA
   suppressWarnings(
     if(setNA == TRUE){
       dat2 <- lapply(perDataSet, function(x) epx.missing(x$dat, x$info))
       perDataSet <- mapply(function(dat, info) list(list(dat = dat, info = info)), dat2, info[[7]])
     })
 
+  # Apply value labels and convert to appropriate classes
   suppressWarnings(
     if(convert == TRUE){
       dat2 <- lapply(perDataSet,
@@ -83,7 +85,7 @@ read.EpiData <- function(x, convert = TRUE, setNA = TRUE){
       attributes(dat2) <- attributes(dat)
       dat2
     } else {
-      dat2 <- dat
+      dat2 <- dat2
     }
   )
 
@@ -99,10 +101,7 @@ read.EpiData <- function(x, convert = TRUE, setNA = TRUE){
 
   # Collect relational information
   if(length(dat) > 1){
-    attributes(dat2)$info.relations <-
-      data.frame(data.set = xml2::xml_attr(info$infoDataSets, "id"),
-                 parent.data.set = unlist(info$infoParentDataSet),
-                 key.variables = unlist(info$infoKeyVars))
+    attributes(dat2)$info.relations <- info$infoRelations
   }
 
   dat2

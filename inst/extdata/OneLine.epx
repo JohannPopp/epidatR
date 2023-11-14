@@ -1,0 +1,822 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EpiData xmlns="http://www.epidata.dk/XML/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.epidata.dk/XML/2.1 http://www.epidata.dk/XML/2.1/epx.xsd" version="6" xml:lang="en" dateSeparator="/" decimalSeparator="," timeSeparator="." cycle="8">
+  <Settings dateSeparator="/" timeSeparator="." decimalSeparator=","/>
+  <ProjectSettings autoIncStart="1" timedBackupInterval="10" backupOnShutdown="true" showFieldNames="false" showFieldBorders="true"/>
+  <StudyInfo>
+    <GeographicalCoverage>
+      <Text xml:lang="en">Hamburg, Germany</Text>
+    </GeographicalCoverage>
+    <Title>
+      <Text xml:lang="en">VRiMoLa</Text>
+    </Title>
+    <UnitOfObservation>
+      <Text xml:lang="en">Teilnehmer/in am Laborversuch</Text>
+    </UnitOfObservation>
+    <Author/>
+    <Agency/>
+    <Created>2023/11/07 10.57.47</Created>
+    <Identifier/>
+    <Keywords/>
+    <Modified>2023/11/07 10.57.47</Modified>
+    <Notes/>
+    <Version>Pre-Test</Version>
+  </StudyInfo>
+  <ValueLabelSets>
+    <ValueLabelSet id="_geschlecht" type="ftString" scope="vlsInternal">
+      <ValueLabel order="2" value="w">
+        <Label xml:lang="en">weiblich</Label>
+      </ValueLabel>
+      <ValueLabel order="3" value="m">
+        <Label xml:lang="en">männlich</Label>
+      </ValueLabel>
+      <ValueLabel order="4" value="d">
+        <Label xml:lang="en">divers</Label>
+      </ValueLabel>
+      <ValueLabel missing="true" order="5" value="-1">
+        <Label xml:lang="en">keine Angabe</Label>
+      </ValueLabel>
+    </ValueLabelSet>
+    <ValueLabelSet id="_JaNein" type="ftString" scope="vlsInternal">
+      <ValueLabel order="2" value="j">
+        <Label xml:lang="en">ja</Label>
+      </ValueLabel>
+      <ValueLabel order="3" value="n">
+        <Label xml:lang="en">nein</Label>
+      </ValueLabel>
+      <ValueLabel missing="true" order="4" value="-1">
+        <Label xml:lang="en">keine Angabe</Label>
+      </ValueLabel>
+    </ValueLabelSet>
+    <ValueLabelSet id="_1bis5" type="ftInteger" scope="vlsInternal">
+      <ValueLabel order="2" value="1">
+        <Label xml:lang="en">gar nicht</Label>
+      </ValueLabel>
+      <ValueLabel order="3" value="2">
+        <Label xml:lang="en">wenig</Label>
+      </ValueLabel>
+      <ValueLabel order="4" value="3">
+        <Label xml:lang="en">teils, teils</Label>
+      </ValueLabel>
+      <ValueLabel order="5" value="4">
+        <Label xml:lang="en">eher ja</Label>
+      </ValueLabel>
+      <ValueLabel order="6" value="5">
+        <Label xml:lang="en">voll und ganz</Label>
+      </ValueLabel>
+      <ValueLabel missing="true" order="7" value="-1">
+        <Label xml:lang="en">keine Angabe</Label>
+      </ValueLabel>
+      <ValueLabel missing="true" order="8" value="-2">
+        <Label xml:lang="en">nicht anwendbar</Label>
+      </ValueLabel>
+    </ValueLabelSet>
+    <ValueLabelSet id="_rolle" type="ftInteger" scope="vlsInternal">
+      <ValueLabel order="2" value="1">
+        <Label xml:lang="en">VR Proband*in</Label>
+      </ValueLabel>
+      <ValueLabel order="3" value="2">
+        <Label xml:lang="en">Patien*in</Label>
+      </ValueLabel>
+      <ValueLabel order="4" value="3">
+        <Label xml:lang="en">Beobachter*in</Label>
+      </ValueLabel>
+      <ValueLabel missing="true" order="5" value="-1">
+        <Label xml:lang="en">keine Angabe</Label>
+      </ValueLabel>
+    </ValueLabelSet>
+    <ValueLabelSet id="_einwilligung" type="ftString" scope="vlsInternal">
+      <ValueLabel order="2" value="n">
+        <Label xml:lang="en">Nein</Label>
+      </ValueLabel>
+      <ValueLabel order="3" value="j">
+        <Label xml:lang="en">Ja</Label>
+      </ValueLabel>
+    </ValueLabelSet>
+    <ValueLabelSet id="_vorNach" type="ftInteger" scope="vlsInternal">
+      <ValueLabel order="2" value="1">
+        <Label xml:lang="en">Beginn</Label>
+      </ValueLabel>
+      <ValueLabel order="3" value="2">
+        <Label xml:lang="en">Ende</Label>
+      </ValueLabel>
+    </ValueLabelSet>
+    <ValueLabelSet id="_ChrZeitwichtung" type="ftString" scope="vlsInternal">
+      <ValueLabel order="2" value="1">
+        <Label xml:lang="en">&lt;=1</Label>
+      </ValueLabel>
+      <ValueLabel order="3" value="1,5">
+        <Label xml:lang="en">&gt;1-5</Label>
+      </ValueLabel>
+      <ValueLabel order="4" value="2">
+        <Label xml:lang="en">&gt;5-10</Label>
+      </ValueLabel>
+      <ValueLabel order="5" value="2,5">
+        <Label xml:lang="en">&gt;10-20</Label>
+      </ValueLabel>
+      <ValueLabel order="6" value="3">
+        <Label xml:lang="en">&gt;20-30</Label>
+      </ValueLabel>
+      <ValueLabel order="7" value="3,5">
+        <Label xml:lang="en">&gt;30-45</Label>
+      </ValueLabel>
+      <ValueLabel order="8" value="4">
+        <Label xml:lang="en">&gt;45-60</Label>
+      </ValueLabel>
+      <ValueLabel order="9" value="5">
+        <Label xml:lang="en">&gt;60-100</Label>
+      </ValueLabel>
+      <ValueLabel order="10" value="6">
+        <Label xml:lang="en">&gt;100-150</Label>
+      </ValueLabel>
+      <ValueLabel order="11" value="7">
+        <Label xml:lang="en">&gt;150-210</Label>
+      </ValueLabel>
+      <ValueLabel order="12" value="8">
+        <Label xml:lang="en">&gt;210-270</Label>
+      </ValueLabel>
+      <ValueLabel order="13" value="9">
+        <Label xml:lang="en">&gt;270-360</Label>
+      </ValueLabel>
+      <ValueLabel order="14" value="10">
+        <Label xml:lang="en">&gt;360-480</Label>
+      </ValueLabel>
+      <ValueLabel missing="true" order="15" value="-1">
+        <Label xml:lang="en">keine Angabe</Label>
+      </ValueLabel>
+    </ValueLabelSet>
+    <ValueLabelSet id="_mkh" type="ftString" scope="vlsInternal">
+      <ValueLabel order="6" value="0">
+        <Label xml:lang="en">0</Label>
+      </ValueLabel>
+      <ValueLabel order="2" value="1">
+        <Label xml:lang="en">18</Label>
+      </ValueLabel>
+      <ValueLabel order="3" value="2">
+        <Label xml:lang="en">12</Label>
+      </ValueLabel>
+      <ValueLabel order="4" value="3">
+        <Label xml:lang="en">6</Label>
+      </ValueLabel>
+      <ValueLabel missing="true" order="5" value="-1">
+        <Label xml:lang="en">keine Angabe</Label>
+      </ValueLabel>
+    </ValueLabelSet>
+    <ValueLabelSet id="_mKraftBewegen" type="ftString" scope="vlsInternal">
+      <ValueLabel order="7" value="0">
+        <Label xml:lang="en">0</Label>
+      </ValueLabel>
+      <ValueLabel order="2" value="1">
+        <Label xml:lang="en">1,5</Label>
+      </ValueLabel>
+      <ValueLabel order="3" value="2">
+        <Label xml:lang="en">6</Label>
+      </ValueLabel>
+      <ValueLabel order="4" value="3">
+        <Label xml:lang="en">12</Label>
+      </ValueLabel>
+      <ValueLabel order="5" value="4">
+        <Label xml:lang="en">18</Label>
+      </ValueLabel>
+      <ValueLabel missing="true" order="6" value="-1">
+        <Label xml:lang="en">keine Angabe</Label>
+      </ValueLabel>
+    </ValueLabelSet>
+    <ValueLabelSet id="_hKraftBewegen" type="ftString" scope="vlsInternal">
+      <ValueLabel order="7" value="0">
+        <Label xml:lang="en">0</Label>
+      </ValueLabel>
+      <ValueLabel order="2" value="1">
+        <Label xml:lang="en">2</Label>
+      </ValueLabel>
+      <ValueLabel order="3" value="2">
+        <Label xml:lang="en">8</Label>
+      </ValueLabel>
+      <ValueLabel order="4" value="3">
+        <Label xml:lang="en">17</Label>
+      </ValueLabel>
+      <ValueLabel order="5" value="4">
+        <Label xml:lang="en">25</Label>
+      </ValueLabel>
+      <ValueLabel missing="true" order="6" value="-1">
+        <Label xml:lang="en">keine Angabe</Label>
+      </ValueLabel>
+    </ValueLabelSet>
+    <ValueLabelSet id="_shKraftBewegen" type="ftString" scope="vlsInternal">
+      <ValueLabel order="7" value="0">
+        <Label xml:lang="en">0</Label>
+      </ValueLabel>
+      <ValueLabel order="2" value="1">
+        <Label xml:lang="en">4</Label>
+      </ValueLabel>
+      <ValueLabel order="3" value="2">
+        <Label xml:lang="en">15</Label>
+      </ValueLabel>
+      <ValueLabel order="4" value="3">
+        <Label xml:lang="en">32</Label>
+      </ValueLabel>
+      <ValueLabel order="5" value="4">
+        <Label xml:lang="en">100</Label>
+      </ValueLabel>
+      <ValueLabel missing="true" order="6" value="-1">
+        <Label xml:lang="en">keine Angabe</Label>
+      </ValueLabel>
+    </ValueLabelSet>
+    <ValueLabelSet id="_spitzKraftBewegen" type="ftString" scope="vlsInternal">
+      <ValueLabel order="7" value="0">
+        <Label xml:lang="en">0</Label>
+      </ValueLabel>
+      <ValueLabel order="2" value="1">
+        <Label xml:lang="en">6</Label>
+      </ValueLabel>
+      <ValueLabel order="3" value="2">
+        <Label xml:lang="en">25</Label>
+      </ValueLabel>
+      <ValueLabel order="4" value="3">
+        <Label xml:lang="en">50</Label>
+      </ValueLabel>
+      <ValueLabel order="5" value="4">
+        <Label xml:lang="en">100</Label>
+      </ValueLabel>
+      <ValueLabel missing="true" order="6" value="-1">
+        <Label xml:lang="en">keine Angabe</Label>
+      </ValueLabel>
+    </ValueLabelSet>
+    <ValueLabelSet id="_hkh" type="ftString" scope="vlsInternal">
+      <ValueLabel order="6" value="0">
+        <Label xml:lang="en">0</Label>
+      </ValueLabel>
+      <ValueLabel order="2" value="1">
+        <Label xml:lang="en">25</Label>
+      </ValueLabel>
+      <ValueLabel order="3" value="2">
+        <Label xml:lang="en">17</Label>
+      </ValueLabel>
+      <ValueLabel order="4" value="3">
+        <Label xml:lang="en">8</Label>
+      </ValueLabel>
+      <ValueLabel missing="true" order="5" value="-1">
+        <Label xml:lang="en">keine Angabe</Label>
+      </ValueLabel>
+    </ValueLabelSet>
+    <ValueLabelSet id="_shkh" type="ftString" scope="vlsInternal">
+      <ValueLabel order="6" value="0">
+        <Label xml:lang="en">0</Label>
+      </ValueLabel>
+      <ValueLabel order="2" value="1">
+        <Label xml:lang="en">100</Label>
+      </ValueLabel>
+      <ValueLabel order="3" value="2">
+        <Label xml:lang="en">32</Label>
+      </ValueLabel>
+      <ValueLabel order="4" value="3">
+        <Label xml:lang="en">15</Label>
+      </ValueLabel>
+      <ValueLabel missing="true" order="5" value="-1">
+        <Label xml:lang="en">keine Angabe</Label>
+      </ValueLabel>
+    </ValueLabelSet>
+    <ValueLabelSet id="_spitzkh" type="ftString" scope="vlsInternal">
+      <ValueLabel order="6" value="0">
+        <Label xml:lang="en">0</Label>
+      </ValueLabel>
+      <ValueLabel order="2" value="1">
+        <Label xml:lang="en">100</Label>
+      </ValueLabel>
+      <ValueLabel order="3" value="2">
+        <Label xml:lang="en">100</Label>
+      </ValueLabel>
+      <ValueLabel order="4" value="3">
+        <Label xml:lang="en">25</Label>
+      </ValueLabel>
+      <ValueLabel missing="true" order="5" value="-1">
+        <Label xml:lang="en">keine Angabe</Label>
+      </ValueLabel>
+    </ValueLabelSet>
+    <ValueLabelSet id="_symmetrie" type="ftString" scope="vlsInternal">
+      <ValueLabel order="2" value="0">
+        <Label xml:lang="en">0</Label>
+      </ValueLabel>
+      <ValueLabel order="3" value="2">
+        <Label xml:lang="en">2</Label>
+      </ValueLabel>
+      <ValueLabel order="4" value="4">
+        <Label xml:lang="en">4</Label>
+      </ValueLabel>
+      <ValueLabel missing="true" order="5" value="-1">
+        <Label xml:lang="en">keine Angabe</Label>
+      </ValueLabel>
+    </ValueLabelSet>
+    <ValueLabelSet id="_kHaltung" type="ftString" scope="vlsInternal">
+      <ValueLabel order="2" value="0">
+        <Label xml:lang="en">0</Label>
+      </ValueLabel>
+      <ValueLabel order="3" value="3">
+        <Label xml:lang="en">3</Label>
+      </ValueLabel>
+      <ValueLabel order="4" value="6">
+        <Label xml:lang="en">6</Label>
+      </ValueLabel>
+      <ValueLabel order="5" value="9">
+        <Label xml:lang="en">9</Label>
+      </ValueLabel>
+      <ValueLabel missing="true" order="6" value="-1">
+        <Label xml:lang="en">keine Angabe</Label>
+      </ValueLabel>
+    </ValueLabelSet>
+    <ValueLabelSet id="_miss2" type="ftInteger" scope="vlsInternal">
+      <ValueLabel missing="true" order="2" value="-1">
+        <Label xml:lang="en">keine Angabe</Label>
+      </ValueLabel>
+      <ValueLabel order="3" value="0">
+        <Label xml:lang="en">liegt nicht vor</Label>
+      </ValueLabel>
+    </ValueLabelSet>
+    <ValueLabelSet id="_miss" type="ftFloat" scope="vlsInternal">
+      <ValueLabel missing="true" order="2" value="-1">
+        <Label xml:lang="en">keine Angabe</Label>
+      </ValueLabel>
+    </ValueLabelSet>
+  </ValueLabelSets>
+  <DataFiles>
+    <DataFile id="Fragebogen" created="2023/11/09 21.49.57" modified="2023/11/13 23.41.08" version="" afterRecordState="arsNewRecord">
+      <Caption>
+        <Text xml:lang="en">Fragebogen</Text>
+      </Caption>
+      <Sections>
+        <Section id="MAIN" top="0" left="0" width="0" height="0">
+          <Fields>
+            <Field id="nein" top="9" left="766" type="ftString" length="1" decimals="0" entryMode="emNoEnter" showValueLabel="true" defaultValue="n"/>
+            <Field id="ID" top="12" left="37" type="ftUpperString" length="6" decimals="0" entryMode="emMustEnter" showValueLabel="true">
+              <Question>
+                <Text xml:lang="en">ID</Text>
+              </Question>
+            </Field>
+            <Field id="einwilligung" top="61" left="197" type="ftString" length="1" decimals="0" entryMode="emMustEnter" showValueLabel="true" valueLabelRef="_einwilligung">
+              <Question>
+                <Text xml:lang="en">Einwilligung gegeben</Text>
+              </Question>
+              <Compare toFieldRef="nein" type="fcNEq"/>
+            </Field>
+            <Field id="datum" top="61" left="484" type="ftDMYDate" length="10" decimals="0" entryMode="emMustEnter" showValueLabel="true">
+              <Question>
+                <Text xml:lang="en">Datum der Erhebung</Text>
+              </Question>
+            </Field>
+            <Field id="gebDat" top="88" left="484" type="ftDMYDate" length="10" decimals="0" entryMode="emMustEnter" showValueLabel="true">
+              <Question>
+                <Text xml:lang="en">Geburtsdatum</Text>
+              </Question>
+            </Field>
+          </Fields>
+        </Section>
+        <Section id="Section1" top="119" left="37" width="636" height="374">
+          <Fields>
+            <Field id="motivation" top="11" left="259" type="ftInteger" length="1" decimals="0" entryMode="emMustEnter" showValueLabel="true" valueLabelRef="_1bis5">
+              <Question>
+                <Text xml:lang="en">Motivation</Text>
+              </Question>
+            </Field>
+            <Field id="magVR" top="40" left="259" type="ftInteger" length="1" decimals="0" entryMode="emMustEnter" showValueLabel="true" valueLabelRef="_1bis5">
+              <Question>
+                <Text xml:lang="en">Mir gefällt VR</Text>
+              </Question>
+            </Field>
+            <Field id="pflegeErfahrung" top="69" left="254" type="ftString" length="1" decimals="0" entryMode="emMustEnter" showValueLabel="true" valueLabelRef="_JaNein">
+              <Question>
+                <Text xml:lang="en">Praktische Pflegeerfahrung</Text>
+              </Question>
+              <Jumps>
+                <Jump on="n" type="jtSkipNextField" reset="jrLeaveAsIs"/>
+              </Jumps>
+            </Field>
+            <Field id="pflegeErfahrungText" top="121" left="254" type="ftMemo" length="20" decimals="0" entryMode="emDefault" showValueLabel="true" width="264" height="40">
+              <Question>
+                <Text xml:lang="en">Art der Pflegeerfahrung</Text>
+              </Question>
+            </Field>
+            <Field id="koerperEinschr" top="182" left="254" type="ftString" length="1" decimals="0" entryMode="emMustEnter" showValueLabel="true" valueLabelRef="_JaNein">
+              <Question>
+                <Text xml:lang="en">körperliche Einschränkungen</Text>
+              </Question>
+              <Jumps>
+                <Jump on="n" type="jtSkipNextField" reset="jrLeaveAsIs"/>
+              </Jumps>
+            </Field>
+            <Field id="koerperEinschrText" top="229" left="254" type="ftMemo" length="20" decimals="0" entryMode="emDefault" showValueLabel="true" width="275" height="40">
+              <Question>
+                <Text xml:lang="en">Welche körperlichen Einschränkungen</Text>
+              </Question>
+            </Field>
+            <Field id="brille" top="279" left="254" type="ftString" length="1" decimals="0" entryMode="emMustEnter" showValueLabel="true" valueLabelRef="_JaNein">
+              <Question>
+                <Text xml:lang="en">Brille getragen</Text>
+              </Question>
+            </Field>
+            <Field id="geschlecht" top="306" left="254" type="ftString" length="1" decimals="0" entryMode="emMustEnter" showValueLabel="true" valueLabelRef="_geschlecht">
+              <Question>
+                <Text xml:lang="en">Geschlecht</Text>
+              </Question>
+            </Field>
+            <Field id="rolle" top="335" left="259" type="ftInteger" length="1" decimals="0" entryMode="emMustEnter" showValueLabel="true" valueLabelRef="_rolle">
+              <Question>
+                <Text xml:lang="en">Rolle in der VR</Text>
+              </Question>
+            </Field>
+          </Fields>
+        </Section>
+        <Section id="Sektion_Gesundheitszustand" top="511" left="37" width="618" height="211">
+          <Caption>
+            <Text xml:lang="en">Gesundheitszustand</Text>
+          </Caption>
+          <Fields>
+            <Field id="kopfschmerz" top="6" left="204" type="ftInteger" length="1" decimals="0" entryMode="emMustEnter" showValueLabel="true" valueLabelRef="_1bis5">
+              <Question>
+                <Text xml:lang="en">Kopfschmerz</Text>
+              </Question>
+            </Field>
+            <Field id="motionSickness" top="49" left="204" type="ftInteger" length="1" decimals="0" entryMode="emMustEnter" showValueLabel="true" valueLabelRef="_1bis5">
+              <Question>
+                <Text xml:lang="en">Schwindel/Übelkeit</Text>
+              </Question>
+            </Field>
+            <Field id="andereBeschwerden" top="86" left="204" type="ftString" length="1" decimals="0" entryMode="emMustEnter" showValueLabel="true" valueLabelRef="_JaNein">
+              <Question>
+                <Text xml:lang="en">Andere Auswirkungen</Text>
+              </Question>
+              <Jumps>
+                <Jump on="n" type="jtSkipNextField" reset="jrLeaveAsIs"/>
+              </Jumps>
+            </Field>
+            <Field id="beschwerdenText" top="143" left="204" type="ftMemo" length="20" decimals="0" entryMode="emDefault" showValueLabel="true" width="330" height="40">
+              <Question>
+                <Text xml:lang="en">Welche Auswirkungen</Text>
+              </Question>
+            </Field>
+          </Fields>
+        </Section>
+        <Section id="Sektion_Laborversuch" top="736" left="38" width="617" height="596">
+          <Caption>
+            <Text xml:lang="en">Laborversuch</Text>
+          </Caption>
+          <Fields>
+            <Field id="vorbereitetRolle" top="10" left="250" type="ftInteger" length="1" decimals="0" entryMode="emMustEnter" showValueLabel="true" valueLabelRef="_1bis5">
+              <Question>
+                <Text xml:lang="en">Vorbereitet auf die Rolle</Text>
+              </Question>
+            </Field>
+            <Field id="skriptHilfreich" top="42" left="249" type="ftInteger" length="1" decimals="0" entryMode="emMustEnter" showValueLabel="true" valueLabelRef="_1bis5">
+              <Question>
+                <Text xml:lang="en">Unterstützt durch Skript</Text>
+              </Question>
+            </Field>
+            <Field id="videoHilfreich" top="74" left="249" type="ftInteger" length="1" decimals="0" entryMode="emMustEnter" showValueLabel="true" valueLabelRef="_1bis5">
+              <Question>
+                <Text xml:lang="en">Unterstützt durch Video</Text>
+              </Question>
+            </Field>
+            <Field id="gehversuchHilfreich" top="106" left="250" type="ftInteger" length="1" decimals="0" entryMode="emMustEnter" showValueLabel="true" valueLabelRef="_1bis5">
+              <Question>
+                <Text xml:lang="en">Gehversuche hilfreich</Text>
+              </Question>
+            </Field>
+            <Field id="planDurchf" top="138" left="250" type="ftInteger" length="1" decimals="0" entryMode="emMustEnter" showValueLabel="true" valueLabelRef="_1bis5">
+              <Question>
+                <Text xml:lang="en">Durchführung wie geplant</Text>
+              </Question>
+            </Field>
+            <Field id="auswVerstanden" top="170" left="250" type="ftInteger" length="1" decimals="0" entryMode="emMustEnter" showValueLabel="true" valueLabelRef="_1bis5">
+              <Question>
+                <Text xml:lang="en">Auswirkungen verstanden</Text>
+              </Question>
+            </Field>
+            <Field id="belastungIdent" top="202" left="250" type="ftInteger" length="1" decimals="0" entryMode="emMustEnter" showValueLabel="true" valueLabelRef="_1bis5">
+              <Question>
+                <Text xml:lang="en">Belastungen identifiziert</Text>
+              </Question>
+            </Field>
+            <Field id="risikoEinsch" top="234" left="250" type="ftInteger" length="1" decimals="0" entryMode="emMustEnter" showValueLabel="true" valueLabelRef="_1bis5">
+              <Question>
+                <Text xml:lang="en">Risiken einschätzen</Text>
+              </Question>
+            </Field>
+            <Field id="praeventAbleit" top="266" left="250" type="ftInteger" length="1" decimals="0" entryMode="emMustEnter" showValueLabel="true" valueLabelRef="_1bis5">
+              <Question>
+                <Text xml:lang="en">Präventionsmaßnahmen ableiten</Text>
+              </Question>
+            </Field>
+            <Field id="LMMbesser" top="298" left="250" type="ftInteger" length="1" decimals="0" entryMode="emMustEnter" showValueLabel="true" valueLabelRef="_1bis5">
+              <Question>
+                <Text xml:lang="en">LMM leichter</Text>
+              </Question>
+            </Field>
+            <Field id="VRrealistisch" top="330" left="250" type="ftInteger" length="1" decimals="0" entryMode="emMustEnter" showValueLabel="true" valueLabelRef="_1bis5">
+              <Question>
+                <Text xml:lang="en">VR realitätsgetreu</Text>
+              </Question>
+            </Field>
+            <Field id="interfaceHilfreich" top="362" left="250" type="ftInteger" length="1" decimals="0" entryMode="emMustEnter" showValueLabel="true" valueLabelRef="_1bis5">
+              <Question>
+                <Text xml:lang="en">Unterstützung durch das Interface</Text>
+              </Question>
+            </Field>
+            <Field id="techProblem" top="393" left="249" type="ftString" length="1" decimals="0" entryMode="emMustEnter" showValueLabel="true" valueLabelRef="_JaNein">
+              <Question>
+                <Text xml:lang="en">Technische Schwierigkeiten</Text>
+              </Question>
+              <Jumps>
+                <Jump on="n" type="jtSkipNextField" reset="jrLeaveAsIs"/>
+              </Jumps>
+            </Field>
+            <Field id="techSchwierigText" top="453" left="249" type="ftMemo" length="20" decimals="0" entryMode="emDefault" showValueLabel="true" width="320" height="40">
+              <Question>
+                <Text xml:lang="en">Welche technischen Schwierigkeiten</Text>
+              </Question>
+            </Field>
+            <Field id="verbesserung" top="528" left="250" type="ftMemo" length="20" decimals="0" entryMode="emDefault" showValueLabel="true" width="320" height="40">
+              <Question>
+                <Text xml:lang="en">Verbesserungsvorschläge</Text>
+              </Question>
+            </Field>
+          </Fields>
+        </Section>
+      </Sections>
+      <KeyFields>
+        <Key fieldRef="ID"/>
+      </KeyFields>
+      <StatusbarContentString>%d(ID) - Fragebogen</StatusbarContentString>
+      <Records modified="2023/11/13 23.41.08" encryptedSalt="">
+        <Record status="rsNormal">nein="n";ID="05K06W";einwilligung="j";datum=13/11/2023;gebDat=20/07/1967;motivation=5;magVR=2;pflegeErfahrung="j";pflegeErfahrungText="Pflege";koerperEinschr="n";brille="n";geschlecht="m";rolle=3;kopfschmerz=1;motionSickness=1;andereBeschwerden="n";vorbereitetRolle=2;skriptHilfreich=3;videoHilfreich=2;gehversuchHilfreich=4;planDurchf=2;auswVerstanden=5;belastungIdent=3;risikoEinsch=3;praeventAbleit=3;LMMbesser=3;VRrealistisch=3;interfaceHilfreich=3;techProblem="n";verbesserung="keine"</Record>
+      </Records>
+    </DataFile>
+    <DataFile id="LMM" created="2023/11/09 21.57.39" modified="2023/11/13 23.41.08" version="" afterRecordState="arsNewRecord">
+      <Caption>
+        <Text xml:lang="en">LMM-Ganzkörperkräfte</Text>
+      </Caption>
+      <Sections>
+        <Section id="MAIN" top="0" left="0" width="0" height="0">
+          <Fields>
+            <Field id="ID" top="10" left="37" type="ftUpperString" length="6" decimals="0" entryMode="emMustEnter" showValueLabel="true">
+              <Question>
+                <Text xml:lang="en">ID</Text>
+              </Question>
+            </Field>
+            <Field id="zeitpunkt" top="96" left="82" type="ftInteger" length="1" decimals="0" entryMode="emMustEnter" showValueLabel="true" valueLabelRef="_vorNach">
+              <Question>
+                <Text xml:lang="en">Zeitpunkt</Text>
+              </Question>
+            </Field>
+            <Field id="zeitwichtung" top="179" left="160" type="ftString" length="3" decimals="0" entryMode="emMustEnter" showValueLabel="true" valueLabelRef="_ChrZeitwichtung">
+              <Question>
+                <Text xml:lang="en">Zeitwichtung</Text>
+              </Question>
+            </Field>
+            <Field id="mKraftHalten" top="284" left="177" type="ftString" length="3" decimals="0" entryMode="emDefault" showValueLabel="true" defaultValue="0" valueLabelRef="_mkh">
+              <Question>
+                <Text xml:lang="en">Mittlere Kräfte, halten</Text>
+              </Question>
+            </Field>
+            <Field id="mKraftBewegen" top="284" left="465" type="ftString" length="3" decimals="0" entryMode="emDefault" showValueLabel="true" defaultValue="0" valueLabelRef="_mKraftBewegen">
+              <Question>
+                <Text xml:lang="en">Mittlere Kräfte, Bewegen</Text>
+              </Question>
+            </Field>
+            <Field id="hKrafHalten" top="314" left="177" type="ftString" length="3" decimals="0" entryMode="emDefault" showValueLabel="true" defaultValue="0" valueLabelRef="_hkh">
+              <Question>
+                <Text xml:lang="en">Hohe Kräfte, halten</Text>
+              </Question>
+            </Field>
+            <Field id="hKraftBewegen" top="314" left="465" type="ftString" length="3" decimals="0" entryMode="emDefault" showValueLabel="true" defaultValue="0" valueLabelRef="_hKraftBewegen">
+              <Question>
+                <Text xml:lang="en">Hohe Kräfte, Bewegen</Text>
+              </Question>
+            </Field>
+            <Field id="shKraftHalten" top="344" left="177" type="ftString" length="3" decimals="0" entryMode="emDefault" showValueLabel="true" defaultValue="0" valueLabelRef="_shkh">
+              <Question>
+                <Text xml:lang="en">Sehr hohe Kräfte, halten</Text>
+              </Question>
+            </Field>
+            <Field id="shKraftBewegen" top="344" left="465" type="ftString" length="3" decimals="0" entryMode="emDefault" showValueLabel="true" defaultValue="0" valueLabelRef="_shKraftBewegen">
+              <Question>
+                <Text xml:lang="en">Sehr hohe Kräfte, Bewegen</Text>
+              </Question>
+            </Field>
+            <Field id="spitzKraftHalten" top="375" left="177" type="ftString" length="3" decimals="0" entryMode="emDefault" showValueLabel="true" defaultValue="0" valueLabelRef="_spitzkh">
+              <Question>
+                <Text xml:lang="en">Spitzenkräfte, halten</Text>
+              </Question>
+            </Field>
+            <Field id="spitzKraftBewegen" top="375" left="465" type="ftString" length="3" decimals="0" entryMode="emDefault" showValueLabel="true" defaultValue="0" valueLabelRef="_spitzKraftBewegen">
+              <Question>
+                <Text xml:lang="en">Spitzenräfte, Bewegen</Text>
+              </Question>
+            </Field>
+            <Field id="gesamtKraftWichtung" top="415" left="177" type="ftFloat" length="6" decimals="1" entryMode="emMustEnter" showValueLabel="true">
+              <Question>
+                <Text xml:lang="en">Gesamtkraftwichtung</Text>
+              </Question>
+              <Ranges>
+                <Range start="0" end="486"/>
+              </Ranges>
+            </Field>
+            <Field id="gkwFrau" top="450" left="177" type="ftFloat" length="6" decimals="1" entryMode="emMustEnter" showValueLabel="true">
+              <Question>
+                <Text xml:lang="en">Bei Frauen x 1,5</Text>
+              </Question>
+              <Ranges>
+                <Range start="0" end="730"/>
+              </Ranges>
+            </Field>
+            <Field id="symmetrie" top="496" left="269" type="ftString" length="2" decimals="0" entryMode="emMustEnter" showValueLabel="true" valueLabelRef="_symmetrie">
+              <Question>
+                <Text xml:lang="en">Symmetrie der Kraftaufwendung</Text>
+              </Question>
+            </Field>
+            <Field id="koerperHaltung" top="527" left="269" type="ftString" length="2" decimals="0" entryMode="emMustEnter" showValueLabel="true" valueLabelRef="_kHaltung">
+              <Question>
+                <Text xml:lang="en">Körperhaltung</Text>
+              </Question>
+            </Field>
+            <Field id="arbeitsorga" top="817" left="269" type="ftString" length="2" decimals="0" entryMode="emMustEnter" showValueLabel="true" valueLabelRef="_symmetrie">
+              <Question>
+                <Text xml:lang="en">Arbeitsorganisation</Text>
+              </Question>
+            </Field>
+            <Field id="bewKraftM" top="913" left="219" type="ftFloat" length="6" decimals="1" entryMode="emMustEnter" showValueLabel="true" valueLabelRef="_miss">
+              <Question>
+                <Text xml:lang="en">Kraftausübung(en), Männer</Text>
+              </Question>
+              <Ranges>
+                <Range start="0" end="486"/>
+              </Ranges>
+            </Field>
+            <Field id="bewKraftF" top="913" left="485" type="ftFloat" length="6" decimals="1" entryMode="emMustEnter" showValueLabel="true" valueLabelRef="_miss">
+              <Question>
+                <Text xml:lang="en">Kraftausübung(en), Frauen</Text>
+              </Question>
+              <Ranges>
+                <Range start="0" end="730"/>
+              </Ranges>
+            </Field>
+            <Field id="bewSymmetrie" top="942" left="269" type="ftInteger" length="2" decimals="0" entryMode="emMustEnter" showValueLabel="true" valueLabelRef="_miss2">
+              <Question>
+                <Text xml:lang="en">Symmetrie der Kraftaufw.</Text>
+              </Question>
+              <Ranges>
+                <Range start="0" end="4"/>
+              </Ranges>
+            </Field>
+            <Field id="bewKoerperhaltung" top="968" left="269" type="ftInteger" length="2" decimals="0" entryMode="emMustEnter" showValueLabel="true" valueLabelRef="_miss2">
+              <Question>
+                <Text xml:lang="en">Körperhaltung</Text>
+              </Question>
+              <Ranges>
+                <Range start="0" end="9"/>
+              </Ranges>
+            </Field>
+            <Field id="bewAusfBed" top="994" left="269" type="ftInteger" length="2" decimals="0" entryMode="emMustEnter" showValueLabel="true" valueLabelRef="_miss2">
+              <Question>
+                <Text xml:lang="en">Ausführungsbedingungen, Summe</Text>
+              </Question>
+              <Ranges>
+                <Range start="0" end="10"/>
+              </Ranges>
+            </Field>
+            <Field id="S17" top="1005" left="440" type="ftFloat" length="8" decimals="2" entryMode="emDefault" showValueLabel="true"/>
+            <Field id="bewArbeitsOrga" top="1022" left="269" type="ftInteger" length="2" decimals="0" entryMode="emMustEnter" showValueLabel="true" valueLabelRef="_miss2">
+              <Question>
+                <Text xml:lang="en">Arbeitsorganisation</Text>
+              </Question>
+              <Ranges>
+                <Range start="0" end="4"/>
+              </Ranges>
+            </Field>
+            <Field id="bewZeitwichtung" top="1064" left="122" type="ftInteger" length="2" decimals="0" entryMode="emMustEnter" showValueLabel="true" valueLabelRef="_miss2">
+              <Question>
+                <Text xml:lang="en">Zeitwichtung</Text>
+              </Question>
+              <Ranges>
+                <Range start="1" end="10"/>
+              </Ranges>
+            </Field>
+            <Field id="sumMann" top="1112" left="219" type="ftFloat" length="6" decimals="1" entryMode="emMustEnter" showValueLabel="true" valueLabelRef="_miss">
+              <Question>
+                <Text xml:lang="en">Summe Männer</Text>
+              </Question>
+              <Ranges>
+                <Range start="0" end="999"/>
+              </Ranges>
+            </Field>
+            <Field id="sumFrau" top="1112" left="485" type="ftFloat" length="6" decimals="1" entryMode="emMustEnter" showValueLabel="true" valueLabelRef="_miss">
+              <Question>
+                <Text xml:lang="en">Summe Frauen</Text>
+              </Question>
+              <Ranges>
+                <Range start="0" end="999"/>
+              </Ranges>
+            </Field>
+            <Field id="resMann" top="1150" left="219" type="ftFloat" length="8" decimals="1" entryMode="emMustEnter" showValueLabel="true" valueLabelRef="_miss">
+              <Question>
+                <Text xml:lang="en">Ergebnis Männer</Text>
+              </Question>
+              <Ranges>
+                <Range start="0" end="9999"/>
+              </Ranges>
+            </Field>
+            <Field id="resFrau" top="1150" left="485" type="ftFloat" length="8" decimals="1" entryMode="emMustEnter" showValueLabel="true" valueLabelRef="_miss">
+              <Question>
+                <Text xml:lang="en">Ergebnis Frauen</Text>
+              </Question>
+              <Ranges>
+                <Range start="0" end="999"/>
+              </Ranges>
+            </Field>
+          </Fields>
+          <Headings>
+            <Heading id="H1_zeitwichtung" top="135" left="15" type="htH3">
+              <Caption>
+                <Text xml:lang="en">1. Schritt: Bestimmung der Zeitwichtung</Text>
+              </Caption>
+            </Heading>
+            <Heading id="H2" top="222" left="15" type="htH3">
+              <Caption>
+                <Text xml:lang="en">2. Schritt: Bestimmung der Wichtungen der weiteren Merkmale</Text>
+              </Caption>
+            </Heading>
+            <Heading id="H3" top="870" left="15" type="htH3">
+              <Caption>
+                <Text xml:lang="en">3. Schrit: Bewertung und Beurteilung</Text>
+              </Caption>
+            </Heading>
+            <Heading id="H4" top="1068" left="193" type="htH4">
+              <Caption>
+                <Text xml:lang="en">X</Text>
+              </Caption>
+            </Heading>
+          </Headings>
+        </Section>
+        <Section id="ausfBedingungen" top="558" left="30" width="465" height="240">
+          <Caption>
+            <Text xml:lang="en">Ungünstige Ausführungsdingungen</Text>
+          </Caption>
+          <Fields>
+            <Field id="handArm" top="7" left="240" type="ftInteger" length="2" decimals="0" entryMode="emMustEnter" showValueLabel="true" defaultValue="0" valueLabelRef="_miss2">
+              <Question>
+                <Text xml:lang="en">Hand-/Armstellung</Text>
+              </Question>
+              <Ranges>
+                <Range start="0" end="2"/>
+              </Ranges>
+            </Field>
+            <Field id="kraftUebertragung" top="35" left="240" type="ftInteger" length="2" decimals="0" entryMode="emMustEnter" showValueLabel="true" defaultValue="0" valueLabelRef="_miss2">
+              <Question>
+                <Text xml:lang="en">Kraftübertragung/-einleitung</Text>
+              </Question>
+              <Ranges>
+                <Range start="0" end="2"/>
+              </Ranges>
+            </Field>
+            <Field id="umgebung" top="63" left="240" type="ftInteger" length="2" decimals="0" entryMode="emMustEnter" showValueLabel="true" defaultValue="0" valueLabelRef="_miss2">
+              <Question>
+                <Text xml:lang="en">Umgebungsbedingungen</Text>
+              </Question>
+              <Ranges>
+                <Range start="0" end="2"/>
+              </Ranges>
+            </Field>
+            <Field id="raeumlBedingung" top="91" left="240" type="ftInteger" length="2" decimals="0" entryMode="emMustEnter" showValueLabel="true" defaultValue="0" valueLabelRef="_miss2">
+              <Question>
+                <Text xml:lang="en">Räumliche Bedingungen</Text>
+              </Question>
+              <Ranges>
+                <Range start="0" end="2"/>
+              </Ranges>
+            </Field>
+            <Field id="kleidung" top="147" left="240" type="ftInteger" length="2" decimals="0" entryMode="emMustEnter" showValueLabel="true" defaultValue="0" valueLabelRef="_miss2">
+              <Question>
+                <Text xml:lang="en">Kleidung</Text>
+              </Question>
+              <Ranges>
+                <Range start="0" end="2"/>
+              </Ranges>
+            </Field>
+            <Field id="sumArbBed" top="188" left="240" type="ftInteger" length="2" decimals="0" entryMode="emMustEnter" showValueLabel="true" valueLabelRef="_miss2">
+              <Question>
+                <Text xml:lang="en">Summe</Text>
+              </Question>
+              <Ranges>
+                <Range start="0" end="10"/>
+              </Ranges>
+            </Field>
+          </Fields>
+        </Section>
+      </Sections>
+      <Records modified="2023/11/13 23.41.08" encryptedSalt="">
+        <Record status="rsNormal">ID="05K06W";zeitpunkt=1;zeitwichtung="3,5";mKraftHalten="0";mKraftBewegen="2";hKrafHalten="1";hKraftBewegen="2";shKraftHalten="0";shKraftBewegen="0";spitzKraftHalten="1";spitzKraftBewegen="0";gesamtKraftWichtung=139;gkwFrau=250;symmetrie="2";koerperHaltung="3";handArm=2;kraftUebertragung=1;umgebung=0;raeumlBedingung=1;S5=0;kleidung=1;sumArbBed=5;arbeitsorga="4";bewKraftM=74;bewKraftF=-1;bewSymmetrie=-1;bewKoerperhaltung=-1;bewAusfBed=-1;bewArbeitsOrga=-1;bewZeitwichtung=3;sumMann=345;sumFrau=532;resMann=9857;resFrau=843</Record>
+      </Records>
+    </DataFile>
+  </DataFiles>
+  <DataFileRelations>
+    <DataFileRelation id="relation_id_3" dataFileRef="Fragebogen"/>
+    <DataFileRelation id="relation_id_2" dataFileRef="LMM"/>
+  </DataFileRelations>
+</EpiData>
