@@ -6,7 +6,7 @@
 \alias{epidatR-package}
 \title{epidatR: Reading EpiData Epx-Files and Converting Them to a Data.frame}
 \description{
-The main function \code{\link{read.EpiData}} reads epx-files, created by EpiData software (\link{www.epidata.dk}), into R and converts the data into appropriate object classes.
+The main function read.EpiData() reads epx-files, created by EpiData software (www.epidata.dk), into R and converts the data into appropriate object classes.
 }
 \seealso{
 Useful links:
