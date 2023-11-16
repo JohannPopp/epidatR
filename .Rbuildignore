@@ -2,3 +2,5 @@
 ^\.Rproj\.user$
 ^LICENSE\.md$
 Kram.R
+^\.github$
+^codecov\.yml$

@@ -25,6 +25,10 @@ The function can not jet read encrypted epx-files. I would need much more expert
 
 The package is not jet available from CRAN. You can install it from here, using the devtools-package.
 
+ <!-- badges: start -->
+  [![R-CMD-check](https://github.com/JohannPopp/epidatR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/JohannPopp/epidatR/actions/workflows/R-CMD-check.yaml)
+  <!-- badges: end -->
+
 ```{r}
 devtools::install_github("https://github.com/JohannPopp/epidatR")
 ```
