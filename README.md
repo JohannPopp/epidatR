@@ -2,9 +2,9 @@
 
 This package reads [EpiData](https://www.epidata.dk/) epx-files directly into R. So far it contains one major function `read.EpiData()`. The other functions in this repository are helpers.
 
-Compared to the allready existing package [epxToR](https://cran.r-project.org/package=epxToR), `read.EpiData()` not only transfers epx-files into an R-`data.frame`. Additionally, values defined as missing in EpiData will be set to `NA`, defined value and variable labels will be applied and variables will be converted to appropriate R-classes according to their field type in EpiData.
+Compared to the allready existing package [epxToR](https://cran.r-project.org/package=epxToR), `read.EpiData()` not only transfers epx-files into an R-`data.frame`. Additionally, values defined as missing in EpiData will be set to `NA`, defined value and variable labels will be applied and variables will be converted to appropriate R-classes according to their field type in EpiData. 
 
-If this conversion is not wanted or causes some trouble, the original raw codes can be transferred into the `data.frame` as `character`-variables, by setting the argument `convert=FALSE`.
+If this conversion is not wanted or causes some trouble, the original raw codes can be transferred into the `data.frame` as `character`-variables, by setting the argument `convert="none"`.
 
 If the epx-file consists of one data set only, the output will be a `data.frame`. If the epx-file contains a relational data base with multiple data sets, it will be a `list` of multiple `data.frame`s.
 

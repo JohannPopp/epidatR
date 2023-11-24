@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EpiData xmlns="http://www.epidata.dk/XML/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.epidata.dk/XML/2.1 http://www.epidata.dk/XML/2.1/epx.xsd" version="6" xml:lang="en" dateSeparator="/" decimalSeparator="," timeSeparator="." cycle="2">
+  <Settings dateSeparator="/" timeSeparator="." decimalSeparator=","/>
+  <ProjectSettings autoIncStart="1" timedBackupInterval="10" backupOnShutdown="true" showFieldNames="false" showFieldBorders="true"/>
+  <StudyInfo>
+    <Abstract>
+      <Text xml:lang="en">Anhand dieses Beispielprojektes erkläre ich das Arbeiten mit EpiData</Text>
+    </Abstract>
+    <GeographicalCoverage>
+      <Text xml:lang="en">Hamburg</Text>
+    </GeographicalCoverage>
+    <Title>
+      <Text xml:lang="en">Beispielprojekt</Text>
+    </Title>
+    <UnitOfObservation>
+      <Text xml:lang="en">Eine Person</Text>
+    </UnitOfObservation>
+    <Author>Johann Popp</Author>
+    <Agency/>
+    <Created>2019/05/21 20.20.55</Created>
+    <Identifier/>
+    <Keywords/>
+    <Modified>2019/05/21 20.20.55</Modified>
+    <Notes/>
+    <Version>1</Version>
+  </StudyInfo>
+  <ValueLabelSets>
+    <ValueLabelSet id="_miss" type="ftInteger" scope="vlsInternal">
+      <ValueLabel missing="true" order="2" value="-1">
+        <Label xml:lang="en">no data</Label>
+      </ValueLabel>
+    </ValueLabelSet>
+    <ValueLabelSet id="_gender" type="ftInteger" scope="vlsInternal">
+      <ValueLabel order="2" value="1">
+        <Label xml:lang="en">female</Label>
+      </ValueLabel>
+      <ValueLabel order="3" value="2">
+        <Label xml:lang="en">male</Label>
+      </ValueLabel>
+      <ValueLabel order="4" value="3">
+        <Label xml:lang="en">other</Label>
+      </ValueLabel>
+      <ValueLabel missing="true" order="5" value="-1">
+        <Label xml:lang="en">no data</Label>
+      </ValueLabel>
+    </ValueLabelSet>
+    <ValueLabelSet id="_gebDatum" type="ftDMYDate" scope="vlsInternal">
+      <ValueLabel missing="true" order="2" value="-287861">
+        <Label xml:lang="en">keine Angabe</Label>
+      </ValueLabel>
+    </ValueLabelSet>
+  </ValueLabelSets>
+  <DataFiles>
+    <DataFile id="ds1" created="2019/05/21 20.20.55" modified="2023/11/23 10.52.45" version="" afterRecordState="arsNewRecord">
+      <Caption>
+        <Text xml:lang="en">Dataset 1</Text>
+      </Caption>
+      <Sections>
+        <Section id="MAIN" top="0" left="0" width="0" height="0">
+          <Fields>
+            <Field id="ID" top="56" left="134" type="ftAutoInc" length="6" decimals="0" entryMode="emDefault" showValueLabel="true">
+              <Question>
+                <Text xml:lang="en">Index</Text>
+              </Question>
+            </Field>
+            <Field id="date" top="88" left="134" type="ftDMYDate" length="10" decimals="0" entryMode="emDefault" showValueLabel="true">
+              <Question>
+                <Text xml:lang="en">Date</Text>
+              </Question>
+              <Ranges>
+                <Range start="01/01/1880" end="31/12/2025"/>
+              </Ranges>
+            </Field>
+            <Field id="age" top="122" left="134" type="ftInteger" length="3" decimals="0" entryMode="emMustEnter" showValueLabel="true" valueLabelRef="_miss">
+              <Question>
+                <Text xml:lang="en">Age (years)</Text>
+              </Question>
+              <Ranges>
+                <Range start="0" end="150"/>
+              </Ranges>
+            </Field>
+            <Field id="gender" top="155" left="134" type="ftInteger" length="2" decimals="0" entryMode="emDefault" showValueLabel="true" valueLabelRef="_gender">
+              <Question>
+                <Text xml:lang="en">Gender</Text>
+              </Question>
+              <Jumps>
+                <Jump on="2" type="jtToField" reset="jrLeaveAsIs" toFieldRef="hight"/>
+              </Jumps>
+            </Field>
+            <Field id="hight" top="188" left="134" type="ftInteger" length="3" decimals="0" entryMode="emDefault" showValueLabel="true" valueLabelRef="_miss">
+              <Question>
+                <Text xml:lang="en">Hight (cm)</Text>
+              </Question>
+              <Ranges>
+                <Range start="40" end="250"/>
+              </Ranges>
+            </Field>
+            <Field id="weight" top="221" left="134" type="ftFloat" length="8" decimals="2" entryMode="emDefault" showValueLabel="true" valueLabelRef="_miss">
+              <Question>
+                <Text xml:lang="en">Weight (kg)</Text>
+              </Question>
+              <Ranges>
+                <Range start="20" end="300"/>
+              </Ranges>
+            </Field>
+            <Field id="notes" top="274" left="134" type="ftMemo" length="20" decimals="0" entryMode="emDefault" showValueLabel="true" width="348" height="40">
+              <Question>
+                <Text xml:lang="en">Notes</Text>
+              </Question>
+            </Field>
+          </Fields>
+          <Headings>
+            <Heading id="H1" top="5" left="134" type="htH1">
+              <Caption>
+                <Text xml:lang="en">EpiData Example Data Set</Text>
+              </Caption>
+            </Heading>
+          </Headings>
+        </Section>
+      </Sections>
+      <Records modified="2023/11/23 10.52.45" encryptedSalt="">
+        <Record status="rsNormal">ID=1;date=03/11/2023;age=65;gender=2;hight=189;weight=78;notes="No notes"</Record>
+        <Record status="rsDeleted">ID=2;date=10/11/2023;age=-1;gender=-1;hight=160;weight=52</Record>
+        <Record status="rsNormal">ID=3;date=30/10/2023;age=18;gender=1;hight=-1;weight=60</Record>
+        <Record status="rsNormal">ID=4;age=39;gender=2;hight=170;weight=81;notes="This is fake data"</Record>
+      </Records>
+    </DataFile>
+  </DataFiles>
+  <DataFileRelations>
+    <DataFileRelation id="relation_id_1" dataFileRef="ds1"/>
+  </DataFileRelations>
+</EpiData>

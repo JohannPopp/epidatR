@@ -1,7 +1,7 @@
 Package: epidatR
 Type: Package
 Title: Reading EpiData Epx-Files and Converting Them to a Data.frame
-Version: 0.2.0
+Version: 0.3.0
 Authors@R: 
     person("Johann", "Popp", email = "johann.popp@posteo.de", role = c("aut", "cre"))
 Maintainer: Johann Popp <johann.popp@posteo.de>
