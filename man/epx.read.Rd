@@ -15,3 +15,30 @@ A data.frame
 \description{
 A helper function of \code{\link{read.EpiData}} to read xml-data into a data.frame
 }
+\examples{
+# This demonstrates the effects of all six helper functions to \code{\link{read.EpiData}}.
+
+(x <- epx.example("SomeFakeData.epx"))
+
+# epx.extract() extracts the information from an EpiData-epx file
+(info <- epx.extract(x))
+
+# epx.read() transforms the information into a data.frame
+(dat <- lapply(info$perDataSet, epx.read))
+
+# Combine dat and info in a data-set-wise list
+# This is a necessary detour to handle EpiData files with multiple data sets.
+perDataSet <- mapply(function(dat, info) list(list(dat = dat, info = info)), dat, info[[7]])
+
+# epx.labels() replaces value codes with value labels
+(datLab <- epx.labels(perDataSet$ds1$dat, perDataSet$ds1$info))
+
+# epx.missing() replaces definde missing values with NA
+(datMis <- epx.missing(perDataSet$ds1$dat, perDataSet$ds1$info))
+
+# epx.class() sets variable classes according to the field types defined in EpiData
+(datClass <- epx.class(perDataSet$ds1$dat, perDataSet$ds$info))
+
+# Bringing it all together
+read.EpiData(epx.example("SomeFakeData.epx"))
+}

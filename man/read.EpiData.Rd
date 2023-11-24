@@ -4,21 +4,18 @@
 \alias{read.EpiData}
 \title{Read EpiData epx-Files}
 \usage{
-read.EpiData(x, convert = TRUE, setNA = TRUE)
+read.EpiData(x, convert = "all")
 }
 \arguments{
 \item{x}{An epx-file created by EpiData.}
 
-\item{convert}{logical. Shall variables be converted to appropriate object
-classes? Shall the value labels of coded variables be shown?}
-
-\item{setNA}{logical. Shall defined missings be set to \code{NA}?}
+\item{convert}{c("all", "none", "missings", "labels", "both") "missings" replaces defined missing values with NA; "labels" replaces value codes with value labels, "both" replaces missing values and value codes and "all" (default) also applies variable classes according to the field types defined in EpiData.}
 }
 \value{
 A simple data base will be returned as a \code{data.frame}. A relational
 data base will be returned as a \code{list} of \code{data.frame}s.
 
-Study Informations are stored as \code{attributes(...)$study.info} and variable
+Study informations are stored as \code{attributes(...)$study.info} and variable
 labels are stored as \code{attributes(...)$variable.labels}. For relational
 data bases, key variables and parent data sets are stored as \code{attributes(...)$info.relations}.
 }
@@ -28,14 +25,12 @@ Reads \href{https://www.epidata.dk/}{EpiData} epx-files into a
 }
 \details{
 By default, object classes of the variables will be set according to the field type defined in EpiData. Coded variables will be returned as \code{factor}s with the value labels defined in EpiData. Values that are defined as missing values in EpiData will be set to \code{NA}.
-
- If this is not wanted or causes some trouble, you can set \code{convert=FALSE} to get \code{data.frame}s with the raw data in \code{character} form. Set \code{setNA=FALSE} to use the original codes/labels for defined missing values.
 }
 \examples{
 # Read the example data set "marathon.epx"
-# (The helper function epidatR.example is only needed to identify the path
+# (The helper function epx.example is only needed to identify the path
 # of the example file in the loaded package).
-dat <- read.EpiData(epidatR.example("marathon.epx"))
+dat <- read.EpiData(epx.example("SomeFakeData.epx"))
 dat
 
 # Extract study information

@@ -18,7 +18,7 @@
 
 # Johann Popp
 # 2019-06-16
-# Last update: 2023-11-14
+# Last update: 2023-11-21
 ###########################################
 
 #' Read EpiData epx-Files
@@ -27,31 +27,29 @@
 #' \code{\link{data.frame}} or a \code{\link{list}} of \code{data.frame}s.
 #'
 #' @param x An epx-file created by EpiData.
-#' @param convert logical. Shall variables be converted to appropriate object
-#' classes? Shall the value labels of coded variables be shown?
-#' @param setNA logical. Shall defined missings be set to \code{NA}?
+#' @param convert c("all", "none", "missings", "labels", "both") "missings" replaces defined missing values with NA; "labels" replaces value codes with value labels, "both" replaces missing values and value codes and "all" (default) also applies variable classes according to the field types defined in EpiData.
+#'
 #'
 #' @return
 #' A simple data base will be returned as a \code{data.frame}. A relational
 #' data base will be returned as a \code{list} of \code{data.frame}s.
 #'
-#' Study Informations are stored as \code{attributes(...)$study.info} and variable
+#' Study informations are stored as \code{attributes(...)$study.info} and variable
 #' labels are stored as \code{attributes(...)$variable.labels}. For relational
 #' data bases, key variables and parent data sets are stored as \code{attributes(...)$info.relations}.
 #'
 #' @details
 #' By default, object classes of the variables will be set according to the field type defined in EpiData. Coded variables will be returned as \code{factor}s with the value labels defined in EpiData. Values that are defined as missing values in EpiData will be set to \code{NA}.
 #'
-#'  If this is not wanted or causes some trouble, you can set \code{convert=FALSE} to get \code{data.frame}s with the raw data in \code{character} form. Set \code{setNA=FALSE} to use the original codes/labels for defined missing values.
 #'
 #'
 #' @export
 #'
 #' @examples
 #' # Read the example data set "marathon.epx"
-#' # (The helper function epidatR.example is only needed to identify the path
+#' # (The helper function epx.example is only needed to identify the path
 #' # of the example file in the loaded package).
-#' dat <- read.EpiData(epidatR.example("marathon.epx"))
+#' dat <- read.EpiData(epx.example("SomeFakeData.epx"))
 #' dat
 #'
 #' # Extract study information
@@ -59,7 +57,13 @@
 
 
 
-read.EpiData <- function(x, convert = TRUE, setNA = TRUE){
+read.EpiData <- function(x, convert = "all"){
+  if(!any(
+    grepl(paste0("^", convert, "$"),
+          c("all", "a", "none", "no", "n", "missings", "miss", "m",
+            "labels", "label", "l", "both", "b")))){
+    stop("Convert can be 'all', 'missings', 'labels', 'both' or 'none'")
+  }
   info <- epx.extract(x)
   dat <- lapply(info[[7]], epx.read)
 
@@ -68,14 +72,42 @@ read.EpiData <- function(x, convert = TRUE, setNA = TRUE){
 
   # Set definded missing variables to NA
   suppressWarnings(
-    if(setNA == TRUE){
+    if(any(grepl(paste0("^", convert, "$"),
+                 c("all", "a", "missings", "miss", "m", "both", "b")))){
       dat2 <- lapply(perDataSet, function(x) epx.missing(x$dat, x$info))
-      perDataSet <- mapply(function(dat, info) list(list(dat = dat, info = info)), dat2, info[[7]])
+      perDataSet <- mapply(function(dat, info){
+        list(list(dat = dat, info = info))
+      },
+      dat2, info[[7]])
+    } else {
+      dat2 <- dat
     })
 
-  # Apply value labels and convert to appropriate classes
+  # Apply value labels
   suppressWarnings(
-    if(convert == TRUE){
+    if(any(
+      grepl(paste0("^", convert, "$"),
+            c("all", "a", "labels", "label", "l", "both", "b")))){
+      dat2 <- lapply(perDataSet,
+                     function(x){
+                       if(inherits(x[[1]], "data.frame")){
+                         epx.labels(x[[1]], x[[2]])
+                       } else {"This data frame has no entries"}
+                     })
+      attributes(dat2) <- attributes(dat)
+      perDataSet <- mapply(function(dat, info){
+        list(list(dat = dat, info = info))
+      },
+      dat2, info[[7]])
+      dat2
+    }
+  )
+
+  # Set variable classes
+  suppressWarnings(
+    if(any(
+      grepl(paste0("^", convert, "$"),
+            c("all", "a")))){
       dat2 <- lapply(perDataSet,
                      function(x){
                        if(inherits(x[[1]], "data.frame")){
@@ -83,11 +115,9 @@ read.EpiData <- function(x, convert = TRUE, setNA = TRUE){
                        } else {"This data frame has no entries"}
                      })
       attributes(dat2) <- attributes(dat)
-      dat2
-    } else {
-      dat2 <- dat2
     }
   )
+
 
 
   if(length(dat2) == 1){
