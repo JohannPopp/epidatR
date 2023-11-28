@@ -17,13 +17,16 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">epidatR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.3.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.3.1</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav"><li>
   <a href="../reference/index.html">Reference</a>
+</li>
+<li>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul><ul class="nav navbar-nav navbar-right"><li>
   <a href="https://github.com/JohannPopp/epidatR/" class="external-link">
@@ -141,7 +144,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $infoDataSets</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> {xml_nodeset (1)}</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] &lt;DataFile id="ds1" created="2019/05/21 20.20.55" modified="2023/11/23 10. ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] &lt;DataFile id="ds1" created="2019/05/21 20.20.55" modified="2023/11/27 19. ...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $infoRelations</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   data.set    labels offspring.data.sets key</span>
@@ -150,10 +153,13 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> $perDataSet</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $perDataSet$ds1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $perDataSet$ds1$records</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "ID=1;date=03/11/2023;age=65;gender=2;hight=189;weight=78;notes=\"No notes\""</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [2] "ID=2;date=10/11/2023;age=-1;gender=-1;hight=160;weight=52"                  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [3] "ID=3;date=30/10/2023;age=18;gender=1;hight=-1;weight=60"                    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [4] "ID=4;age=39;gender=2;hight=170;weight=81;notes=\"This is fake data\""       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "ID=1;date=03/11/2023;age=65;gender=2;height=189;weight=78;notes=\"No notes\""</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [2] "ID=2;date=10/11/2023;age=-1;gender=-1;height=160;weight=52"                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [3] "ID=3;date=30/10/2023;age=18;gender=1;height=-1;weight=60"                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [4] "ID=4;age=39;gender=2;height=170;weight=81;notes=\"This is fake data\""       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $perDataSet$ds1$recordStatus</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Verified" "Deleted"  "Normal"   "Normal"  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $perDataSet$ds1$datFields</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> {xml_nodeset (7)}</span>
@@ -161,15 +167,15 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> [2] &lt;Field id="date" top="88" left="134" type="ftDMYDate" length="10" decimal ...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [3] &lt;Field id="age" top="122" left="134" type="ftInteger" length="3" decimals ...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [4] &lt;Field id="gender" top="155" left="134" type="ftInteger" length="2" decim ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [5] &lt;Field id="hight" top="188" left="134" type="ftInteger" length="3" decima ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [5] &lt;Field id="height" top="188" left="134" type="ftInteger" length="3" decim ...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [6] &lt;Field id="weight" top="221" left="134" type="ftFloat" length="8" decimal ...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [7] &lt;Field id="notes" top="274" left="134" type="ftMemo" length="20" decimals ...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $perDataSet$ds1$fieldNames</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "ID"     "date"   "age"    "gender" "hight"  "weight" "notes" </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "ID"     "date"   "age"    "gender" "height" "weight" "notes" </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $perDataSet$ds1$fieldLabels</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Index"       "Date"        "Age (years)" "Gender"      "Hight (cm)" </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Index"       "Date"        "Age (years)" "Gender"      "Height (cm)"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [6] "Weight (kg)" "Notes"      </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $perDataSet$ds1$fieldTypes</span>
@@ -212,11 +218,11 @@
 <span class="r-in"><span><span class="co"># epx.read() transforms the information into a data.frame</span></span></span>
 <span class="r-in"><span><span class="op">(</span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="va">info</span><span class="op">$</span><span class="va">perDataSet</span>, <span class="va">epx.read</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $ds1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ID       date age gender hight weight             notes</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  1 03/11/2023  65      2   189     78          No notes</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  2 10/11/2023  -1     -1   160     52                NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  3 30/10/2023  18      1    -1     60                NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  4         NA  39      2   170     81 This is fake data</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ID       date age gender height weight             notes</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  1 03/11/2023  65      2    189     78          No notes</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  2 10/11/2023  -1     -1    160     52                NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  3 30/10/2023  18      1     -1     60                NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  4         NA  39      2    170     81 This is fake data</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span><span class="co"># Combine dat and info in a data-set-wise list</span></span></span>
 <span class="r-in"><span><span class="co"># This is a necessary detour to handle EpiData files with multiple data sets.</span></span></span>
@@ -224,7 +230,7 @@
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># epx.labels() replaces value codes with value labels</span></span></span>
 <span class="r-in"><span><span class="op">(</span><span class="va">datLab</span> <span class="op">&lt;-</span> <span class="fu"><a href="epx.labels.html">epx.labels</a></span><span class="op">(</span><span class="va">perDataSet</span><span class="op">$</span><span class="va">ds1</span><span class="op">$</span><span class="va">dat</span>, <span class="va">perDataSet</span><span class="op">$</span><span class="va">ds1</span><span class="op">$</span><span class="va">info</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ID       date     age  gender   hight weight             notes</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ID       date     age  gender  height weight             notes</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1  1 03/11/2023      65    male     189     78          No notes</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2  2 10/11/2023 no data no data     160     52                NA</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 3  3 30/10/2023      18  female no data     60                NA</span>
@@ -233,27 +239,27 @@
 <span class="r-in"><span><span class="co"># epx.missing() replaces definde missing values with NA</span></span></span>
 <span class="r-in"><span><span class="op">(</span><span class="va">datMis</span> <span class="op">&lt;-</span> <span class="fu"><a href="epx.missing.html">epx.missing</a></span><span class="op">(</span><span class="va">perDataSet</span><span class="op">$</span><span class="va">ds1</span><span class="op">$</span><span class="va">dat</span>, <span class="va">perDataSet</span><span class="op">$</span><span class="va">ds1</span><span class="op">$</span><span class="va">info</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>NAs introduced by coercion</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ID       date  age gender hight weight             notes</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  1 03/11/2023   65      2   189     78          No notes</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  2 10/11/2023 &lt;NA&gt;   &lt;NA&gt;   160     52              &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  3 30/10/2023   18      1  &lt;NA&gt;     60              &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  4       &lt;NA&gt;   39      2   170     81 This is fake data</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ID       date  age gender height weight             notes</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  1 03/11/2023   65      2    189     78          No notes</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  2 10/11/2023 &lt;NA&gt;   &lt;NA&gt;    160     52              &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  3 30/10/2023   18      1   &lt;NA&gt;     60              &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  4       &lt;NA&gt;   39      2    170     81 This is fake data</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># epx.class() sets variable classes according to the field types defined in EpiData</span></span></span>
 <span class="r-in"><span><span class="op">(</span><span class="va">datClass</span> <span class="op">&lt;-</span> <span class="fu"><a href="epx.class.html">epx.class</a></span><span class="op">(</span><span class="va">perDataSet</span><span class="op">$</span><span class="va">ds1</span><span class="op">$</span><span class="va">dat</span>, <span class="va">perDataSet</span><span class="op">$</span><span class="va">ds</span><span class="op">$</span><span class="va">info</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ID       date age gender hight weight             notes</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  1 2023-11-03  65      2   189     78          No notes</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  2 2023-11-10  -1     -1   160     52                NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  3 2023-10-30  18      1    -1     60                NA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  4       &lt;NA&gt;  39      2   170     81 This is fake data</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   ID       date age gender height weight             notes</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  1 2023-11-03  65      2    189     78          No notes</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  2 2023-11-10  -1     -1    160     52                NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  3 2023-10-30  18      1     -1     60                NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  4       &lt;NA&gt;  39      2    170     81 This is fake data</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Bringing it all together</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="read.EpiData.html">read.EpiData</a></span><span class="op">(</span><span class="fu"><a href="epx.example.html">epx.example</a></span><span class="op">(</span><span class="st">"SomeFakeData.epx"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ID       date age gender hight weight             notes</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  1 2023-11-03  65   male   189     78          No notes</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  2 2023-11-10  NA   &lt;NA&gt;   160     52              &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  3 2023-10-30  18 female    NA     60              &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  4       &lt;NA&gt;  39   male   170     81 This is fake data</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     status ID       date age gender height weight             notes</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 Verified  1 2023-11-03  65   male    189     78          No notes</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  Deleted  2 2023-11-10  NA   &lt;NA&gt;    160     52              &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3   Normal  3 2023-10-30  18 female     NA     60              &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4   Normal  4       &lt;NA&gt;  39   male    170     81 This is fake data</span>
 </code></pre></div>
     </div>
   </div>
