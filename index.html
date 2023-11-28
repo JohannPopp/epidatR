@@ -91,8 +91,46 @@
 <p>The function works fine with the example files “Beispielprojekt.epx”, “marathon.epx”, “sample.v3.epx” and “Clinical_Example.epx”, that are stored under /inst/extdata. Further testing is needed and I would appreciate feed back.</p>
 <p>The function can not jet read encrypted epx-files. I would need much more expertise in cryptography to implement this feature. Perhaps there are some experts to help me out. For experimentation I have added the files “sample.v3_password.epx” with simple (symetric) encryption (Password = “password”) and “sample.v3_ExtendedAccess.epx” with asymetric encryption produeced by the Extended Access module (Login = “admin”, Password = “password”).</p>
 <p>The package is not jet available from CRAN. You can install it from here, using the devtools-package.</p>
-<p><!-- badges: start --> <a href="https://github.com/JohannPopp/epidatR/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/JohannPopp/epidatR/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a> <!-- badges: end --></p>
 <pre class="{r}"><code><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"https://github.com/JohannPopp/epidatR"</span><span class="op">)</span></span></code></pre>
+<div class="section level2">
+<h2 id="still-to-do-list">Still To Do List<a class="anchor" aria-label="anchor" href="#still-to-do-list"></a>
+</h2>
+<table class="table">
+<colgroup>
+<col width="16%">
+<col width="33%">
+<col width="10%">
+<col width="39%">
+</colgroup>
+<thead><tr class="header">
+<th>Date</th>
+<th>To do</th>
+<th>Solved</th>
+<th>Notes</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>2023-11-28</td>
+<td>Reading encrypted files</td>
+<td></td>
+<td>complicated</td>
+</tr>
+<tr class="even">
+<td>2023-11-28</td>
+<td>Setting the time zone</td>
+<td></td>
+<td>managable</td>
+</tr>
+<tr class="odd">
+<td>2023-11-28</td>
+<td>Writing epx files</td>
+<td></td>
+<td>lot of work. Do we need it?</td>
+</tr>
+</tbody>
+</table>
+<p><!-- badges: start --> <a href="https://github.com/JohannPopp/epidatR/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/JohannPopp/epidatR/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a> <!-- badges: end --></p>
+</div>
 </div>
   </div>
 
