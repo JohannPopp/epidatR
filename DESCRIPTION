@@ -1,7 +1,7 @@
 Package: epidatR
 Type: Package
 Title: Reading EpiData Epx-Files and Converting Them to a Data.frame
-Version: 0.3.0
+Version: 0.3.1
 Authors@R: 
     person("Johann", "Popp", email = "johann.popp@posteo.de", role = c("aut", "cre"))
 Maintainer: Johann Popp <johann.popp@posteo.de>
@@ -16,6 +16,5 @@ Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.2.3
 Suggests: 
-    digest (>= 0.6),
     testthat (>= 3.0.0)
 Config/testthat/edition: 3

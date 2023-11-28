@@ -25,10 +25,20 @@ The function can not jet read encrypted epx-files. I would need much more expert
 
 The package is not jet available from CRAN. You can install it from here, using the devtools-package.
 
+```{r}
+devtools::install_github("https://github.com/JohannPopp/epidatR")
+```
+
+## Still To Do List
+| Date       | To do                   | Solved | Notes                       |
+|------------|-------------------------|--------|-----------------------------|
+| 2023-11-28 | Reading encrypted files |        | complicated                 |
+| 2023-11-28 | Setting the time zone   |        | managable                   |
+| 2023-11-28 | Writing epx files       |        | lot of work. Do we need it? |
+
+
  <!-- badges: start -->
   [![R-CMD-check](https://github.com/JohannPopp/epidatR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/JohannPopp/epidatR/actions/workflows/R-CMD-check.yaml)
   <!-- badges: end -->
 
-```{r}
-devtools::install_github("https://github.com/JohannPopp/epidatR")
-```
+

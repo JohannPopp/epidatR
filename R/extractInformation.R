@@ -4,7 +4,7 @@
 
 # Johann Popp
 # 2019-06-08
-# Last update: 2023-11-23
+# Last update: 2023-11-27
 ###########################################
 
 
@@ -108,6 +108,17 @@ epx.extract <- function(x){
           "Record")
       )
 
+    # Extract record status
+    recordStatus <-
+      substring(
+        xml2::xml_attr(
+          xml2::xml_children(
+            xml2::xml_find_all(df, "Records")
+          ),
+          "status"
+        ),
+        3)
+
     # Extract field definitions
     datFields <- xml2::xml_find_all(df, ".//Field")
     # Field names
@@ -127,12 +138,11 @@ epx.extract <- function(x){
     # Extract separators
     infoSeparators <- infoSeparators
 
-    # Key variables
-    # keyVars <- xml2::xml_attr(xml2::xml_find_all(df,  ".//Key"), "fieldRef")
 
 
     # Gather information in a list
-    list(records = records, datFields = datFields, fieldNames = fieldNames, fieldLabels = fieldLabels,
+    list(records = records, recordStatus = recordStatus, datFields = datFields,
+         fieldNames = fieldNames, fieldLabels = fieldLabels,
          fieldTypes = fieldTypes, fieldValLabSets = fieldValLabSets, valLabelSets = valLabelSets,
          valLabels = valLabels, infoSeparators = infoSeparators)
 

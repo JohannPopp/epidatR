@@ -18,7 +18,7 @@
 
 # Johann Popp
 # 2019-06-16
-# Last update: 2023-11-21
+# Last update: 2023-11-27
 ###########################################
 
 #' Read EpiData epx-Files
@@ -115,8 +115,23 @@ read.EpiData <- function(x, convert = "all"){
                        } else {"This data frame has no entries"}
                      })
       attributes(dat2) <- attributes(dat)
+      perDataSet <- mapply(function(dat, info){
+        list(list(dat = dat, info = info))
+      },
+      dat2, info[[7]])
     }
   )
+
+
+  # Add record status
+  dat2 <- lapply(perDataSet,
+                 function(x){
+                   if(inherits(x[[1]], "data.frame")){
+                     data.frame(status = factor(x$info$recordStatus),
+                                x$dat)}
+                    else{"This data frame has no entries"}})
+  attributes(dat2) <- attributes(dat)
+
 
 
 
