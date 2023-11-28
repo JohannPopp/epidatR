@@ -16,10 +16,10 @@ Helper functions are:
 * `epx.read()` transfers the extracted data into a `data.frame`.
 * `epx.missing()` sets defined missings to `NA`.
 * `epx.class()` applies value labels and variable classes.
-* `epidatR.example()` returns the path of the example files in the attached package.
+* `epx.example()` returns the path of the example files in the attached package.
 
 
-The function works fine with the example files "Beispielprojekt.epx", "marathon.epx", "sample.v3.epx" and "Clinical_Example.epx", that are stored under /inst/extdata. Further testing is needed and I would appreciate feed back.
+The function works fine with the example files "SomeFakeData.epx", "marathon.epx", "sample.v3.epx", "Clinical_Example.epx" and "OneLine.epx".
 
 The function can not jet read encrypted epx-files. I would need much more expertise in cryptography to implement this feature. Perhaps there are some experts to help me out. For experimentation I have added the files "sample.v3_password.epx" with simple (symetric) encryption (Password = "password") and "sample.v3_ExtendedAccess.epx" with asymetric encryption produeced by the Extended Access module (Login = "admin", Password = "password"). 
 
@@ -33,7 +33,7 @@ devtools::install_github("https://github.com/JohannPopp/epidatR")
 | Date       | To do                   | Solved | Notes                       |
 |------------|-------------------------|--------|-----------------------------|
 | 2023-11-28 | Reading encrypted files |        | complicated                 |
-| 2023-11-28 | Setting the time zone   |        | managable                   |
+| 2023-11-28 | Setting the time zone   | 2023-11-28 | generally set to "UTC"  |
 | 2023-11-28 | Writing epx files       |        | lot of work. Do we need it? |
 
 

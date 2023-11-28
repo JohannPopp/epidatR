@@ -25,6 +25,8 @@ Reads \href{https://www.epidata.dk/}{EpiData} epx-files into a
 }
 \details{
 By default, object classes of the variables will be set according to the field type defined in EpiData. Coded variables will be returned as \code{factor}s with the value labels defined in EpiData. Values that are defined as missing values in EpiData will be set to \code{NA}.
+
+All date and time fields are convertet using *Coordinated Usual Time (UTC)* as time zone argument as EpiData does not provide time zone information by default.
 }
 \examples{
 # Read the example data set "marathon.epx"
