@@ -51,7 +51,7 @@
     </ValueLabelSet>
   </ValueLabelSets>
   <DataFiles>
-    <DataFile id="ds1" created="2019/05/21 20.20.55" modified="2023/11/23 10.52.45" version="" afterRecordState="arsNewRecord">
+    <DataFile id="ds1" created="2019/05/21 20.20.55" modified="2023/11/27 19.25.59" version="" afterRecordState="arsNewRecord">
       <Caption>
         <Text xml:lang="en">Dataset 1</Text>
       </Caption>
@@ -84,12 +84,12 @@
                 <Text xml:lang="en">Gender</Text>
               </Question>
               <Jumps>
-                <Jump on="2" type="jtToField" reset="jrLeaveAsIs" toFieldRef="hight"/>
+                <Jump on="2" type="jtToField" reset="jrLeaveAsIs" toFieldRef="height"/>
               </Jumps>
             </Field>
-            <Field id="hight" top="188" left="134" type="ftInteger" length="3" decimals="0" entryMode="emDefault" showValueLabel="true" valueLabelRef="_miss">
+            <Field id="height" top="188" left="134" type="ftInteger" length="3" decimals="0" entryMode="emDefault" showValueLabel="true" valueLabelRef="_miss">
               <Question>
-                <Text xml:lang="en">Hight (cm)</Text>
+                <Text xml:lang="en">Height (cm)</Text>
               </Question>
               <Ranges>
                 <Range start="40" end="250"/>
@@ -118,11 +118,11 @@
           </Headings>
         </Section>
       </Sections>
-      <Records modified="2023/11/23 10.52.45" encryptedSalt="">
-        <Record status="rsNormal">ID=1;date=03/11/2023;age=65;gender=2;hight=189;weight=78;notes="No notes"</Record>
-        <Record status="rsDeleted">ID=2;date=10/11/2023;age=-1;gender=-1;hight=160;weight=52</Record>
-        <Record status="rsNormal">ID=3;date=30/10/2023;age=18;gender=1;hight=-1;weight=60</Record>
-        <Record status="rsNormal">ID=4;age=39;gender=2;hight=170;weight=81;notes="This is fake data"</Record>
+      <Records modified="2023/11/27 09.16.40" encryptedSalt="">
+        <Record status="rsVerified">ID=1;date=03/11/2023;age=65;gender=2;height=189;weight=78;notes="No notes"</Record>
+        <Record status="rsDeleted">ID=2;date=10/11/2023;age=-1;gender=-1;height=160;weight=52</Record>
+        <Record status="rsNormal">ID=3;date=30/10/2023;age=18;gender=1;height=-1;weight=60</Record>
+        <Record status="rsNormal">ID=4;age=39;gender=2;height=170;weight=81;notes="This is fake data"</Record>
       </Records>
     </DataFile>
   </DataFiles>

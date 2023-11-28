@@ -3,7 +3,7 @@
 
 # Johann Popp
 # 2019-06-23
-# Last update: 2023-11-14
+# Last update: 2023-11-27
 ###########################################
 
 
@@ -79,6 +79,8 @@ epx.read <- function(x){
         apply(dat[,characterField], 2, function(x) gsub("^\"|\"$", "", x))
     }
   }
+
+
 
   # Include variable labels
   attributes(dat)$variable.labels <- fieldLabels
