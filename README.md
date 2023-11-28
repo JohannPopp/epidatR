@@ -33,7 +33,7 @@ devtools::install_github("https://github.com/JohannPopp/epidatR")
 | Date       | To do                   | Solved | Notes                       |
 |------------|-------------------------|--------|-----------------------------|
 | 2023-11-28 | Reading encrypted files |        | complicated                 |
-| 2023-11-28 | Setting the time zone   |        | managable                   |
+| 2023-11-28 | Setting the time zone   | 2023-11-28 | generally set to "UTC"  |
 | 2023-11-28 | Writing epx files       |        | lot of work. Do we need it? |
 
 

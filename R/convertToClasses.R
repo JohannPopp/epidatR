@@ -6,7 +6,7 @@
 
 # Johann Popp
 # 2019-06-11
-# Last modification 2023-11-20
+# Last modification 2023-11-28
 ###########################################
 
 
@@ -16,6 +16,10 @@
 #'
 #' @param dat A data.frame or a list of data.frames created by \code{\link{epx.extract}}.
 #' @param info Additional information about the EpiData-file created by \code{\link{epx.extract}}.
+#'
+#' @details
+#' All date and time fields are convertet using *Coordinated Usual Time (UTC)* as time zone argument as EpiData does not provide time zone information by default.
+#'
 #'
 #' @return A data.frame with value labels and appropriate object classes of the variables.
 #' @export
@@ -147,40 +151,40 @@ epx.class <- function(dat, info){
     dmyPattern <- paste("%d", info$infoSeparators[[1]][1], "%m", info$infoSeparators[[1]][1], "%Y", sep = "")
     if(sum(fieldTypes == "ftDMYDate" | fieldTypes == "ftDMYAuto") > 1){
       dat[, fieldTypes == "ftDMYDate" | fieldTypes == "ftDMYAuto"] <-
-        lapply(dat[,fieldTypes == "ftDMYDate" | fieldTypes == "ftDMYAuto"], function(x) strptime(x, dmyPattern))
+        lapply(dat[,fieldTypes == "ftDMYDate" | fieldTypes == "ftDMYAuto"], strptime, dmyPattern, tz = "UTC")
     } else {
       dat[,fieldTypes == "ftDMYDate" | fieldTypes == "ftDMYAuto"] <-
-        data.frame(strptime(dat[,fieldTypes == "ftDMYDate" | fieldTypes == "ftDMYAuto"], dmyPattern))
+        data.frame(strptime(dat[,fieldTypes == "ftDMYDate" | fieldTypes == "ftDMYAuto"], dmyPattern, tz = "UTC"))
     }
 
     ## MDY format
     mdyPattern <- paste("%m", info$infoSeparators[[1]][1], "%d", info$infoSeparators[[1]][1], "%Y", sep = "")
     if(sum(fieldTypes == "ftMDYDate" | fieldTypes == "ftMDYAuto") > 1){
       dat[, fieldTypes == "ftMDYDate" | fieldTypes == "ftMDYAuto"] <-
-        lapply(dat[,fieldTypes == "ftMDYDate" | fieldTypes == "ftMDYAuto"], function(x) strptime(x, mdyPattern))
+        lapply(dat[,fieldTypes == "ftMDYDate" | fieldTypes == "ftMDYAuto"], strptime, mdyPattern, tz = "UTC")
     } else {
       dat[,fieldTypes == "ftMDYDate" | fieldTypes == "ftMDYAuto"] <-
-        data.frame(strptime(dat[,fieldTypes == "ftMDYDate" | fieldTypes == "ftMDYAuto"], mdyPattern))
+        data.frame(strptime(dat[,fieldTypes == "ftMDYDate" | fieldTypes == "ftMDYAuto"], mdyPattern, tz = "UTC"))
     }
 
     ## YMD format
     ymdPattern <- paste("%Y", info$infoSeparators[[1]][1], "%m", info$infoSeparators[[1]][1], "%d", sep = "")
     if(sum(fieldTypes == "ftYMDDate" | fieldTypes == "ftYMDAuto") > 1){
       dat[, fieldTypes == "ftYMDDate" | fieldTypes == "ftYMDAuto"] <-
-        lapply(dat[,fieldTypes == "ftYMDDate" | fieldTypes == "ftYMDAuto"], function(x) strptime(x, ymdPattern))
+        lapply(dat[,fieldTypes == "ftYMDDate" | fieldTypes == "ftYMDAuto"], strptime, ymdPattern, tz = "UTC")
     } else {
       dat[,fieldTypes == "ftYMDDate" | fieldTypes == "ftYMDAuto"] <-
-        data.frame(strptime(dat[,fieldTypes == "ftYMDDate" | fieldTypes == "ftYMDAuto"], ymdPattern))
+        data.frame(strptime(dat[,fieldTypes == "ftYMDDate" | fieldTypes == "ftYMDAuto"], ymdPattern, tz = "UTC"))
     }
 
     # Convert time
     timePattern <- paste("%H", info$infoSeparators[2], "%M", info$infoSeparators[2], "%S", sep = "")
     if(sum(fieldTypes == "ftTime" | fieldTypes == "ftTimeAuto") > 1){
       dat[, fieldTypes == "ftTime" | fieldTypes == "ftTimeAuto"] <-
-        lapply(dat[,fieldTypes == "ftTime" | fieldTypes == "ftTimeAuto"], function(x) strptime(x, timePattern))
+        lapply(dat[,fieldTypes == "ftTime" | fieldTypes == "ftTimeAuto"], strptime, timePattern, tz = "UTC")
     } else {
       dat[,fieldTypes == "ftTime" | fieldTypes == "ftTimeAuto"] <-
-        data.frame(strptime(dat[,fieldTypes == "ftTime" | fieldTypes == "ftTimeAuto"], timePattern))
+        data.frame(strptime(dat[,fieldTypes == "ftTime" | fieldTypes == "ftTimeAuto"], timePattern, tz = "UTC"))
     }
 
     # Convert to logical fields

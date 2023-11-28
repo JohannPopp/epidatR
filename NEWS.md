@@ -10,3 +10,7 @@
 
 * Adds the variable "status" for the record status defined in EpiData.
 * Restructures the Tests so that they do not depend on the package *digest* any more.
+
+# epidatR 0.3.2
+
+* Time zone is set to "UTC" for all date and time classes.

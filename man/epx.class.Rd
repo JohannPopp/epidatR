@@ -17,6 +17,9 @@ A data.frame with value labels and appropriate object classes of the variables.
 \description{
 A helper function of \code{\link{read.EpiData}}, to replace values by value labels and convert variables to appropriate classes.
 }
+\details{
+All date and time fields are convertet using *Coordinated Usual Time (UTC)* as time zone argument as EpiData does not provide time zone information by default.
+}
 \examples{
 # This demonstrates the effects of all six helper functions to \code{\link{read.EpiData}}.
 
