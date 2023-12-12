@@ -60,12 +60,42 @@
 
 
 read.EpiData <- function(x, convert = "all"){
+  # Catching errors
+  ## Catch wrong entries for convert =
   if(!any(
     grepl(paste0("^", convert, "$"),
           c("all", "a", "none", "no", "n", "missings", "miss", "m",
             "labels", "label", "l", "both", "b")))){
     stop("Convert can be 'all', 'missings', 'labels', 'both' or 'none'")
   }
+
+  ## Catch wrong file format
+  format <- substr(readLines(x)[2], 1, 45)
+  formatExp <- "<EpiData xmlns=\"http://www.epidata.dk/XML/2.1"
+  if(format != formatExp){
+    cat(c("The file seems to be not of the required EpiData-epx format.
+The second line is expected to begin like this:
+ ' <EpiData xmlns=\"http://www.epidata.dk/XML/2.1 '. \n
+Instead it is:\n",
+          "'", format, "'.\n"))
+    load_anyway <- readline("Do you whant to try loading it despite of this?
+             1 = Yes
+             2 = No")
+    warning("File is not in the expected format.")
+    stopifnot(load_anyway == "1")
+  }
+
+  ## Catch encrypted files
+  if(grepl("password=\"", readLines(x)[2])){
+    stop("The data file is encrypted. Please use a copy without password protection.")
+  }
+    if(readLines(x)[3] == "  <Crypto>"){
+    stop("The data file is encrypted. Please use a copy without 'Extended Access'.")
+  }
+
+  ###################
+
+  # Extract data and additional information
   info <- epx.extract(x)
   dat <- lapply(info[[7]], epx.read)
 
