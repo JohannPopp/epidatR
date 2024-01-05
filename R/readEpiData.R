@@ -126,12 +126,12 @@ Instead it is:\n",
                          epx.labels(x[[1]], x[[2]])
                        } else {"This data frame has no entries"}
                      })
-      attributes(dat2) <- attributes(dat)
+      # attributes(dat2) <- attributes(dat)
       perDataSet <- mapply(function(dat, info){
         list(list(dat = dat, info = info))
       },
       dat2, info[[7]])
-      dat2
+      # dat2
     }
   )
 
@@ -146,7 +146,7 @@ Instead it is:\n",
                          epx.class(x[[1]], x[[2]])
                        } else {"This data frame has no entries"}
                      })
-      attributes(dat2) <- attributes(dat)
+      # attributes(dat2) <- attributes(dat)
       perDataSet <- mapply(function(dat, info){
         list(list(dat = dat, info = info))
       },
@@ -158,11 +158,13 @@ Instead it is:\n",
   # Add record status
   dat2 <- lapply(perDataSet,
                  function(x){
-                   if(inherits(x[[1]], "data.frame")){
-                     data.frame(status = factor(x$info$recordStatus),
-                                x$dat)}
-                    else{"This data frame has no entries"}})
-  attributes(dat2) <- attributes(dat)
+                   if(inherits(x$dat, "data.frame")){
+                     varLabs <- attributes(x$dat)$variable.labels
+                     df <- data.frame(status = factor(x$info$recordStatus),
+                                      x$dat)
+                     attributes(df)$variable.labels <- c("Record status", varLabs)
+                     df}
+                   else{"This data frame has no entries"}})
 
 
 
